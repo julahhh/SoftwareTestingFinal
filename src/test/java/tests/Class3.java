@@ -1,9 +1,11 @@
+package tests;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-public class Class4 {
+public class Class3 {
     // Test 1
     @Test(priority = 1)
     public static void Test1(String[] args) throws InterruptedException {
