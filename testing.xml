@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="RedditUISuite" verbose="1">
+    <test name="RedditUITests">
+        <classes>
+
+            <class name="tests.PostManagement"/>
+            <class name="tests.SubredditManagement"/>
+
+            <class name="tests.UserProfileSettingsTest"/>
+            <class name="tests.FeedNavigationAndFilterTest"/>
+
+            <class name="tests.CreatePostTest"/>
+            <class name="tests.EditPostTest"/>
+
+            <class name="tests.DeletePostTest"/>
+            <class name="tests.SearchAndCommentTest"/>
+
+        </classes>
+    </test>
+</suite>
