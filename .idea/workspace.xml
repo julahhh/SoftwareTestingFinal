@@ -4,17 +4,46 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c1a612b-c126-4a2f-adbf-3752219ad0cf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="2c1a612b-c126-4a2f-adbf-3752219ad0cf" name="Changes" comment="Created testing.xml file. Refactor class tests to be inside of the tests folder. Purpose is to keep things organized. Inside of xml file change the name of the class to whatever you called it">
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/BaseTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditCommentSortingTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditFeedViewOptionsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditHomepageTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditNavigationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditSearchTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditSidebarLinksTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditSortingTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditSubredditAccessTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/SubredditManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SubredditManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/PostManagement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/PostManagement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/SubredditManagement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/SubredditManagement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Class5.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Class6.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Class7.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Class8.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PostManagement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/SubredditManagement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/base/BaseTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/Class3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/Class4.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Class3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Class4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Class5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Class6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Class7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Class8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/PostManagement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/SubredditManagement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing.xml" beforeDir="false" afterPath="$PROJECT_DIR$/testing.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="printScope" value="4" />
+    <option name="OUTPUT_DIRECTORY" value="$USER_HOME$/Desktop/sofar" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -24,27 +53,37 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Martin Patterson &lt;mapatterson6311@eagle.fgcu.edu&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "julahhh"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;julahhh&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/julahhh/SoftwareTestingFinal.git",
-    "accountId": "f382ed3a-d2b2-47b1-9e96-cadc68e12854"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/julahhh/SoftwareTestingFinal.git&quot;,
+    &quot;accountId&quot;: &quot;4bf083a5-2e38-43ea-8f4a-4c950b20c079&quot;
   }
-}]]></component>
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2vhScgKL5MuMMpwnoed1v32JtLW" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -61,13 +100,23 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "TestNG./Users/martnap/Documents/School/FGCU/5.SP.25/CEN 4072 Software Testing/Reddit UI Project/SoftwareTestingFinal/testing.xml.executor": "Run",
+    "TestNG.ChatFunctionalityTest.executor": "Run",
+    "TestNG.FeedNavigationAndFilterTest.executor": "Run",
+    "TestNG.RedditChatTests.executor": "Run",
+    "TestNG.RedditFeedViewOptionsTest.executor": "Run",
+    "TestNG.RedditNavigationTest.navigateToPopular.executor": "Debug",
+    "git-widget-placeholder": "Martin",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "xpath.settings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -77,11 +126,14 @@
       <recent name="C:\Users\julia\OneDrive - Florida Gulf Coast University\..Software Testing Folder\Final Project\SoftwareTestingFinal\.idea" />
     </key>
   </component>
+  <component name="SeleniumInternalSettingsState">
+    <option name="lastUrl" value="https://www.reddit.com/r/popular/" />
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.59" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.59" />
       </set>
     </attachedChunks>
   </component>
@@ -94,6 +146,9 @@
       <option name="presentableId" value="Default" />
       <updated>1744595895496</updated>
       <workItem from="1744595897119" duration="3237000" />
+      <workItem from="1744671831405" duration="11314000" />
+      <workItem from="1744685223222" duration="1171000" />
+      <workItem from="1744686403926" duration="20269000" />
     </task>
     <task id="LOCAL-00001" summary="Structured Project and created needed classes">
       <option name="closed" value="true" />
@@ -111,7 +166,31 @@
       <option name="project" value="LOCAL" />
       <updated>1744596781321</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added BaseTest class within base package. Contains setup + teardown of chrome web driver">
+      <option name="closed" value="true" />
+      <created>1744673001443</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1744673001443</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added BaseTest class within base package. Contains setup + teardown of chrome web driver">
+      <option name="closed" value="true" />
+      <created>1744673154287</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1744673154287</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Created testing.xml file. Refactor class tests to be inside of the tests folder. Purpose is to keep things organized. Inside of xml file change the name of the class to whatever you called it">
+      <option name="closed" value="true" />
+      <created>1744675514636</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1744675514636</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,7 +207,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="HEAD" />
+                        <option value="Martin" />
                       </list>
                     </value>
                   </entry>
@@ -142,6 +221,13 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Structured Project and created needed classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Structured Project and created needed classes" />
+    <MESSAGE value="Created tests package for us to keep our tests in and moved class 3 and 4 into it as those are the two i am working on." />
+    <MESSAGE value="Created tests package for us to keep our tests in and moved class 3 and 4 into it as those are the two i am working on." />
+    <MESSAGE value="Created testing.xml file. Refactor class tests to be inside of the tests folder. Purpose is to keep things organized. Inside of xml file change the name of the class to whatever you called it" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created testing.xml file. Refactor class tests to be inside of the tests folder. Purpose is to keep things organized. Inside of xml file change the name of the class to whatever you called it" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
