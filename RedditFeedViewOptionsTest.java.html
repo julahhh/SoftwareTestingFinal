@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>RedditFeedViewOptionsTest.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #fc5fa3; font-weight: bold;}
+.s1 { color: #ffffff;}
+.s2 { color: #6c7986;}
+.s3 { color: #fc6a5d;}
+.s4 { color: #d0bf69;}
+</style>
+</head>
+<body bgcolor="#292a2f">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+RedditFeedViewOptionsTest.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">edu.reddituigroup.reddit.tests;</span>
+
+<span class="s0">import </span><span class="s1">org.openqa.selenium.*;</span>
+<span class="s0">import </span><span class="s1">org.openqa.selenium.support.ui.ExpectedConditions;</span>
+<span class="s0">import </span><span class="s1">org.testng.Assert;</span>
+<span class="s0">import </span><span class="s1">org.testng.annotations.*;</span>
+<span class="s0">import </span><span class="s1">org.openqa.selenium.TimeoutException; </span><span class="s2">// Import explicitly</span>
+
+
+<span class="s0">public class </span><span class="s1">RedditFeedViewOptionsTest </span><span class="s0">extends </span><span class="s1">BaseTest {</span>
+
+    <span class="s0">private final </span><span class="s1">By cardViewButtonLocator = By.cssSelector(</span><span class="s3">&quot;button[aria-label='Card view']&quot;</span><span class="s1">);</span>
+    <span class="s0">private final </span><span class="s1">By classicViewButtonLocator = By.cssSelector(</span><span class="s3">&quot;button[aria-label='Classic view']&quot;</span><span class="s1">);</span>
+    <span class="s0">private final </span><span class="s1">By compactViewButtonLocator = By.cssSelector(</span><span class="s3">&quot;button[aria-label='Compact view']&quot;</span><span class="s1">);</span>
+
+
+    <span class="s1">@BeforeMethod</span>
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">setUp() {</span>
+        <span class="s0">super</span><span class="s1">.setUp();</span>
+        <span class="s1">driver.get(REDDIT_URL + </span><span class="s3">&quot;r/popular/&quot;</span><span class="s1">);</span>
+        <span class="s1">wait.until(ExpectedConditions.urlContains(</span><span class="s3">&quot;/r/popular/&quot;</span><span class="s1">));</span>
+        <span class="s1">wait.until(ExpectedConditions.presenceOfElementLocated(cardViewButtonLocator));</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Navigated to r/popular for feed view tests&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s4">31</span><span class="s1">, description = </span><span class="s3">&quot;Verify 'Card' view option button is present.&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">verifyCardViewOptionPresence() {</span>
+        <span class="s1">WebElement cardViewButton = findElement(cardViewButtonLocator);</span>
+        <span class="s1">Assert.assertTrue(cardViewButton.isDisplayed(), </span><span class="s3">&quot;'Card' view button should be displayed.&quot;</span><span class="s1">);</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Verified 'Card' view option presence&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s4">32</span><span class="s1">, description = </span><span class="s3">&quot;Verify 'Classic' view option button is present.&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">verifyClassicViewOptionPresence() {</span>
+        <span class="s1">WebElement classicViewButton = findElement(classicViewButtonLocator);</span>
+        <span class="s1">Assert.assertTrue(classicViewButton.isDisplayed(), </span><span class="s3">&quot;'Classic' view button should be displayed.&quot;</span><span class="s1">);</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Verified 'Classic' view option presence&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s4">33</span><span class="s1">, description = </span><span class="s3">&quot;Verify 'Compact' view option button is present.&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">verifyCompactViewOptionPresence() {</span>
+        <span class="s1">WebElement compactViewButton = findElement(compactViewButtonLocator);</span>
+        <span class="s1">Assert.assertTrue(compactViewButton.isDisplayed(), </span><span class="s3">&quot;'Compact' view button should be displayed.&quot;</span><span class="s1">);</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Verified 'Compact' view option presence&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s4">34</span><span class="s1">, description = </span><span class="s3">&quot;Switch to 'Classic' view and verify change.&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">switchToClassicView() {</span>
+        <span class="s1">clickElement(classicViewButtonLocator);</span>
+        <span class="s1">By classicButtonSelectedLocator = By.cssSelector(</span><span class="s3">&quot;button[aria-label='Classic view'][aria-selected='true']&quot;</span><span class="s1">);</span>
+        <span class="s0">try </span><span class="s1">{</span>
+            <span class="s1">wait.until(ExpectedConditions.presenceOfElementLocated(classicButtonSelectedLocator));</span>
+            <span class="s1">Assert.assertTrue(findElement(classicButtonSelectedLocator).isDisplayed(), </span><span class="s3">&quot;'Classic' view button should appear selected after clicking.&quot;</span><span class="s1">);</span>
+            <span class="s1">System.out.println(</span><span class="s3">&quot;Switched to 'Classic' view and verified selection state&quot;</span><span class="s1">);</span>
+        <span class="s1">} </span><span class="s0">catch </span><span class="s1">(TimeoutException e) {</span>
+            <span class="s2">// Alternative check: Look for a class change on the main feed container</span>
+            <span class="s1">By feedContainerLocator = By.cssSelector(</span><span class="s3">&quot;div[data-testid='feed-container'].classic-view&quot;</span><span class="s1">);</span>
+            <span class="s1">wait.until(ExpectedConditions.presenceOfElementLocated(feedContainerLocator));</span>
+            <span class="s1">Assert.assertTrue(findElement(feedContainerLocator).isDisplayed(), </span><span class="s3">&quot;Feed container should have classic view style.&quot;</span><span class="s1">);</span>
+            <span class="s1">Assert.fail(</span><span class="s3">&quot;Could not confirm switch to Classic view via button state or container class. VERIFY LOCATORS/STATE.&quot;</span><span class="s1">);</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s4">35</span><span class="s1">, description = </span><span class="s3">&quot;Switch to 'Compact' view and verify change.&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">switchToCompactView() {</span>
+        <span class="s1">clickElement(compactViewButtonLocator);</span>
+        <span class="s1">By compactButtonSelectedLocator = By.cssSelector(</span><span class="s3">&quot;button[aria-label='Compact view'][aria-selected='true']&quot;</span><span class="s1">);</span>
+        <span class="s0">try </span><span class="s1">{</span>
+            <span class="s1">wait.until(ExpectedConditions.presenceOfElementLocated(compactButtonSelectedLocator));</span>
+            <span class="s1">Assert.assertTrue(findElement(compactButtonSelectedLocator).isDisplayed(), </span><span class="s3">&quot;'Compact' view button should appear selected after clicking.&quot;</span><span class="s1">);</span>
+            <span class="s1">System.out.println(</span><span class="s3">&quot;Switched to 'Compact' view and verified selection state&quot;</span><span class="s1">);</span>
+        <span class="s1">} </span><span class="s0">catch </span><span class="s1">(TimeoutException e) {</span>
+            <span class="s1">Assert.fail(</span><span class="s3">&quot;Could not confirm switch to Compact view via button state or container class. VERIFY LOCATORS/STATE.&quot;</span><span class="s1">);</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>

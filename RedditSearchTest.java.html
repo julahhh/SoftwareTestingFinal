@@ -1,0 +1,163 @@
+<html>
+<head>
+<title>RedditSearchTest.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #fc5fa3; font-weight: bold;}
+.s1 { color: #ffffff;}
+.s2 { color: #d0bf69;}
+.s3 { color: #fc6a5d;}
+.s4 { color: #6c7986;}
+.s5 { color: #9ef1dd;}
+</style>
+</head>
+<body bgcolor="#292a2f">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+RedditSearchTest.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">edu.reddituigroup.reddit.tests;</span>
+
+<span class="s0">import </span><span class="s1">org.openqa.selenium.By;</span>
+<span class="s0">import </span><span class="s1">org.openqa.selenium.JavascriptExecutor;</span>
+<span class="s0">import </span><span class="s1">org.openqa.selenium.WebElement;</span>
+<span class="s0">import </span><span class="s1">org.openqa.selenium.support.ui.ExpectedConditions;</span>
+<span class="s0">import </span><span class="s1">org.testng.Assert;</span>
+<span class="s0">import </span><span class="s1">org.testng.annotations.Test;</span>
+
+<span class="s0">public class </span><span class="s1">RedditSearchTest </span><span class="s0">extends </span><span class="s1">BaseTest {</span>
+
+    <span class="s1">@Test(priority = </span><span class="s2">11</span><span class="s1">, description = </span><span class="s3">&quot;Test searching using Shadow DOM JS execution and direct navigation.&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">searchOnRedditWithJSAndNav() {</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Setting search input via JS...&quot;</span><span class="s1">);</span>
+        <span class="s1">JavascriptExecutor js = (JavascriptExecutor) driver;</span>
+        <span class="s1">Object result = js.executeScript(</span>
+                <span class="s3">&quot;const faceplateInput = document.querySelector('faceplate-search-input');&quot; </span><span class="s1">+</span>
+                        <span class="s3">&quot;if (!faceplateInput || !faceplateInput.shadowRoot) return 'ERROR: No shadow root for faceplate-search-input';&quot; </span><span class="s1">+</span>
+                        <span class="s3">&quot;const input = faceplateInput.shadowRoot.querySelector('input');&quot; </span><span class="s1">+</span>
+                        <span class="s3">&quot;if (!input) return 'ERROR: No input found in shadow root';&quot; </span><span class="s1">+</span>
+                        <span class="s3">&quot;input.focus();&quot; </span><span class="s1">+</span>
+                        <span class="s3">&quot;input.value = 'computer science';&quot; </span><span class="s1">+ </span><span class="s4">// Sets input via JS [cite: 1]</span>
+                        <span class="s3">&quot;input.dispatchEvent(new Event('input', { bubbles: true }));&quot; </span><span class="s1">+</span>
+                        <span class="s3">&quot;return 'Input set via JS to: ' + input.value;&quot;</span>
+        <span class="s1">);</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;JS Execution Result: &quot; </span><span class="s1">+ result);</span>
+        <span class="s1">sleepForPresentation(</span><span class="s2">1000</span><span class="s1">); </span><span class="s4">// Short pause after JS execution</span>
+
+        <span class="s1">String directSearchTerm = </span><span class="s3">&quot;dog pictures&quot;</span><span class="s1">;</span>
+        <span class="s1">String searchUrl = REDDIT_URL + </span><span class="s3">&quot;search/?q=&quot; </span><span class="s1">+ directSearchTerm.replace(</span><span class="s3">&quot; &quot;</span><span class="s1">, </span><span class="s3">&quot;+&quot;</span><span class="s1">);</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Navigating directly to search URL: &quot; </span><span class="s1">+ searchUrl);</span>
+        <span class="s1">driver.get(searchUrl);</span>
+        <span class="s1">sleepForPresentation();</span>
+
+        <span class="s1">wait.until(ExpectedConditions.urlContains(</span><span class="s3">&quot;/search/?q=&quot;</span><span class="s1">));</span>
+        <span class="s1">String currentUrl = driver.getCurrentUrl();</span>
+        <span class="s1">Assert.assertTrue(currentUrl.contains(</span><span class="s3">&quot;/search/?q=&quot;</span><span class="s1">), </span><span class="s3">&quot;Should be on search results page. Current URL: &quot; </span><span class="s1">+ currentUrl);</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Search page loaded: &quot; </span><span class="s1">+ currentUrl);</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s2">12</span><span class="s1">, description = </span><span class="s3">&quot;Click the first search result link (standard XPath).&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">clickFirstSearchResult() {</span>
+        <span class="s1">String searchTerm = </span><span class="s3">&quot;cats&quot;</span><span class="s1">;</span>
+        <span class="s1">String searchUrl = REDDIT_URL + </span><span class="s3">&quot;search/?q=&quot; </span><span class="s1">+ searchTerm;</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Navigating to search URL for clicking results: &quot; </span><span class="s1">+ searchUrl);</span>
+        <span class="s1">driver.get(searchUrl);</span>
+        <span class="s1">wait.until(ExpectedConditions.urlContains(</span><span class="s3">&quot;/search/?q=&quot;</span><span class="s1">));</span>
+        <span class="s1">sleepForPresentation(); </span><span class="s4">// Pause on results page</span>
+
+        <span class="s0">try </span><span class="s1">{</span>
+            <span class="s1">By firstResultLocator = By.xpath(</span><span class="s3">&quot;(//a[contains(@href, '/r/')])[1]&quot;</span><span class="s1">);</span>
+            <span class="s1">System.out.println(</span><span class="s3">&quot;Waiting for the first search result link...&quot;</span><span class="s1">);</span>
+            <span class="s1">WebElement firstResult = wait.until(ExpectedConditions.elementToBeClickable(firstResultLocator));</span>
+
+            <span class="s1">System.out.println(</span><span class="s3">&quot;First search result element found: &quot; </span><span class="s1">+ firstResult.getText());</span>
+            <span class="s1">System.out.println(</span><span class="s3">&quot;Attempting to click the first search result...&quot;</span><span class="s1">);</span>
+            <span class="s1">clickElement(firstResultLocator);</span>
+            <span class="s1">System.out.println(</span><span class="s3">&quot;Successfully clicked the first search result.&quot;</span><span class="s1">);</span>
+            <span class="s1">wait.until(ExpectedConditions.not(ExpectedConditions.urlContains(</span><span class="s3">&quot;/search/?q=&quot;</span><span class="s1">)));</span>
+            <span class="s1">System.out.println(</span><span class="s3">&quot;Navigated away from search results page to: &quot; </span><span class="s1">+ driver.getCurrentUrl());</span>
+
+        <span class="s1">} </span><span class="s0">catch </span><span class="s1">(Exception e) {</span>
+            <span class="s1">System.err.println(</span><span class="s3">&quot;Exception during clickFirstResult: &quot; </span><span class="s1">+ e.getMessage());</span>
+            <span class="s1">e.printStackTrace();</span>
+            <span class="s1">Assert.fail(</span><span class="s3">&quot;Failed to click the first search result.&quot;</span><span class="s1">, e);</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s2">13</span><span class="s1">, description = </span><span class="s3">&quot;Click the first feed post using JS.&quot;</span><span class="s1">)</span>
+        <span class="s0">public void </span><span class="s1">clickFirstFeedPost() </span><span class="s0">throws </span><span class="s1">InterruptedException {</span>
+            <span class="s1">System.out.println(</span><span class="s3">&quot;Navigating to Reddit homepage...&quot;</span><span class="s1">);</span>
+            <span class="s1">driver.navigate().to(</span><span class="s3">&quot;https://www.reddit.com/&quot;</span><span class="s1">);</span>
+            <span class="s1">Thread.sleep(</span><span class="s2">3000</span><span class="s1">); </span><span class="s4">// Wait for feed to load</span>
+
+            <span class="s0">try </span><span class="s1">{</span>
+                <span class="s1">JavascriptExecutor js = (JavascriptExecutor) driver;</span>
+
+                <span class="s1">System.out.println(</span><span class="s3">&quot;🔍 Trying to click the first feed post...&quot;</span><span class="s1">);</span>
+
+                <span class="s1">Object clickResult = js.executeScript(</span>
+                        <span class="s3">&quot;try {&quot; </span><span class="s1">+</span>
+                                <span class="s3">&quot;const postLink = document.querySelector('a[slot=</span><span class="s5">\&quot;</span><span class="s3">full-post-link</span><span class="s5">\&quot;</span><span class="s3">].absolute');&quot; </span><span class="s1">+</span>
+                                <span class="s3">&quot;if (!postLink) return '❌ Could not find the post link';&quot; </span><span class="s1">+</span>
+                                <span class="s3">&quot;postLink.click();&quot; </span><span class="s1">+</span>
+                                <span class="s3">&quot;return '✅ First post clicked!';&quot; </span><span class="s1">+</span>
+                                <span class="s3">&quot;} catch (e) { return '❌ JS Exception: ' + e.message; }&quot;</span>
+                <span class="s1">);</span>
+
+                <span class="s1">System.out.println(</span><span class="s3">&quot;JS Result: &quot; </span><span class="s1">+ clickResult);</span>
+                <span class="s1">Thread.sleep(</span><span class="s2">3000</span><span class="s1">); </span><span class="s4">// Wait for the post page to load</span>
+
+            <span class="s1">} </span><span class="s0">catch </span><span class="s1">(Exception e) {</span>
+                <span class="s1">System.out.println(</span><span class="s3">&quot;❌ Exception in clickFirstFeedPost: &quot; </span><span class="s1">+ e.getMessage());</span>
+                <span class="s1">e.printStackTrace();</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+
+
+    <span class="s1">@Test(priority = </span><span class="s2">14</span><span class="s1">, description = </span><span class="s3">&quot;Click the comments button&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">clickCommentsButton() </span><span class="s0">throws </span><span class="s1">InterruptedException {</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Attempting to click the comments button...&quot;</span><span class="s1">);</span>
+        <span class="s0">try </span><span class="s1">{</span>
+            <span class="s1">JavascriptExecutor js = (JavascriptExecutor) driver;</span>
+            <span class="s1">Object result = js.executeScript(</span>
+                    <span class="s3">&quot;const postEl = document.querySelector('shreddit-post');&quot; </span><span class="s1">+</span>
+                            <span class="s3">&quot;if (!postEl) return '❌ No &lt;shreddit-post&gt; element found';&quot; </span><span class="s1">+</span>
+                            <span class="s3">&quot;if (!postEl.shadowRoot) return '❌ &lt;shreddit-post&gt; has no shadow root';&quot; </span><span class="s1">+</span>
+                            <span class="s3">&quot;const commentButton = postEl.shadowRoot.querySelector(</span><span class="s5">\&quot;</span><span class="s3">button[data-post-click-location='comments-button']</span><span class="s5">\&quot;</span><span class="s3">);&quot; </span><span class="s1">+</span>
+                            <span class="s3">&quot;if (!commentButton) return '❌ Comments button not found inside shadow root';&quot; </span><span class="s1">+</span>
+                            <span class="s3">&quot;commentButton.click();&quot; </span><span class="s1">+</span>
+                            <span class="s3">&quot;return '✅ Comments button clicked!';&quot;</span>
+            <span class="s1">);</span>
+            <span class="s1">System.out.println(result);</span>
+        <span class="s1">} </span><span class="s0">catch </span><span class="s1">(Exception e) {</span>
+            <span class="s1">System.out.println(</span><span class="s3">&quot;❌ Exception during clickCommentsButton: &quot; </span><span class="s1">+ e.getMessage());</span>
+            <span class="s1">e.printStackTrace();</span>
+        <span class="s1">}</span>
+
+        <span class="s1">Thread.sleep(</span><span class="s2">3000</span><span class="s1">); </span><span class="s4">// Allow time for any navigation or modal to open</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s2">15</span><span class="s1">, description = </span><span class="s3">&quot;Verify comment input area is present after clicking comments.&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">verifyCommentInputPresenceAfterClick() {</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Verifying comment input area presence...&quot;</span><span class="s1">);</span>
+        <span class="s1">By commentInputLocator = By.cssSelector(</span><span class="s3">&quot;div[data-testid='comment-textarea'], #CommentSort--SortPicker&quot;</span><span class="s1">); </span><span class="s4">// Example locators</span>
+
+        <span class="s0">try </span><span class="s1">{</span>
+            <span class="s1">WebElement commentInputArea = wait.until(ExpectedConditions.presenceOfElementLocated(commentInputLocator));</span>
+
+            <span class="s1">scrollToElement(commentInputLocator);</span>
+            <span class="s1">Assert.assertTrue(commentInputArea.isDisplayed(), </span><span class="s3">&quot;Comment input area should be displayed.&quot;</span><span class="s1">);</span>
+            <span class="s1">System.out.println(</span><span class="s3">&quot;Comment input area found and displayed.&quot;</span><span class="s1">);</span>
+            <span class="s1">sleepForPresentation();</span>
+
+        <span class="s1">} </span><span class="s0">catch </span><span class="s1">(Exception e) {</span>
+
+            <span class="s1">System.err.println(</span><span class="s3">&quot;Could not find comment input area using standard locator: &quot; </span><span class="s1">+ e.getMessage());</span>
+            <span class="s1">e.printStackTrace();</span>
+            <span class="s1">Assert.fail(</span><span class="s3">&quot;Failed to verify comment input area presence.&quot;</span><span class="s1">, e);</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>

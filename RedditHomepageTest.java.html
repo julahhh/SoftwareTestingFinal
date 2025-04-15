@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>RedditHomepageTest.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #fc5fa3; font-weight: bold;}
+.s1 { color: #ffffff;}
+.s2 { color: #d0bf69;}
+.s3 { color: #fc6a5d;}
+</style>
+</head>
+<body bgcolor="#292a2f">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+RedditHomepageTest.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">edu.reddituigroup.reddit.tests;</span>
+
+<span class="s0">import </span><span class="s1">org.openqa.selenium.*;</span>
+<span class="s0">import </span><span class="s1">org.testng.Assert;</span>
+<span class="s0">import </span><span class="s1">org.testng.annotations.*;</span>
+
+<span class="s0">public class </span><span class="s1">RedditHomepageTest </span><span class="s0">extends </span><span class="s1">BaseTest {</span>
+
+    <span class="s1">@Test(priority = </span><span class="s2">1</span><span class="s1">, description = </span><span class="s3">&quot;Verify the page title of the Reddit homepage.&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">verifyHomepageTitle() {</span>
+        <span class="s1">String expectedTitlePart = </span><span class="s3">&quot;Reddit&quot;</span><span class="s1">;</span>
+        <span class="s1">Assert.assertTrue(driver.getTitle().contains(expectedTitlePart), </span><span class="s3">&quot;Page title should contain '&quot; </span><span class="s1">+ expectedTitlePart + </span><span class="s3">&quot;'. Actual: &quot; </span><span class="s1">+ driver.getTitle());</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Verified homepage title contains 'Reddit'&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s2">2</span><span class="s1">, description = </span><span class="s3">&quot;Verify the presence of the Reddit logo.&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">verifyLogoPresence() {</span>
+        <span class="s1">By logoLocator = By.cssSelector(</span><span class="s3">&quot;a[aria-label='Home'], #reddit-logo&quot;</span><span class="s1">);</span>
+        <span class="s1">WebElement logo = findElement(logoLocator);</span>
+        <span class="s1">Assert.assertTrue(logo.isDisplayed(), </span><span class="s3">&quot;Reddit logo should be displayed.&quot;</span><span class="s1">);</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Verified Reddit logo presence&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s2">3</span><span class="s1">, description = </span><span class="s3">&quot;Verify the presence of the 'Log In' button.&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">verifyLoginButtonPresence() {</span>
+        <span class="s1">By loginButtonLocator = By.cssSelector(</span><span class="s3">&quot;a[href*='login'], button[data-testid='login-button'], #login-button&quot;</span><span class="s1">);</span>
+        <span class="s1">WebElement loginButton = findElement(loginButtonLocator);</span>
+        <span class="s1">Assert.assertTrue(loginButton.isDisplayed(), </span><span class="s3">&quot;'Log In' button should be displayed.&quot;</span><span class="s1">);</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Verified 'Log In' button presence&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s2">4</span><span class="s1">, description = </span><span class="s3">&quot;Verify the presence of the 'Sign Up' button.&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">verifySignUpButtonPresence() {</span>
+        <span class="s1">By signUpButtonLocator = By.cssSelector(</span><span class="s3">&quot;a[href*='register'], button[data-testid='signup-button']&quot;</span><span class="s1">);</span>
+        <span class="s1">WebElement signUpButton = findElement(signUpButtonLocator);</span>
+        <span class="s1">Assert.assertTrue(signUpButton.isDisplayed(), </span><span class="s3">&quot;'Sign Up' button should be displayed.&quot;</span><span class="s1">);</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Verified 'Sign Up' button presence&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s2">5</span><span class="s1">, description = </span><span class="s3">&quot;Verify the presence of the 'Get App' button or link.&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">verifyGetAppButtonPresence() {</span>
+        <span class="s1">By getAppButtonLocator = By.xpath(</span><span class="s3">&quot;//*[contains(text(), 'Get App') or contains(@aria-label, 'Get the Reddit app')]&quot;</span><span class="s1">);</span>
+        <span class="s1">WebElement getAppButton = findElement(getAppButtonLocator);</span>
+        <span class="s1">Assert.assertTrue(getAppButton.isDisplayed(), </span><span class="s3">&quot;'Get App' button or link should be displayed.&quot;</span><span class="s1">);</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Verified 'Get App' button presence&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>

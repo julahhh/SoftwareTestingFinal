@@ -1,0 +1,138 @@
+<html>
+<head>
+<title>RedditSidebarLinksTest.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #fc5fa3; font-weight: bold;}
+.s1 { color: #ffffff;}
+.s2 { color: #fc6a5d;}
+.s3 { color: #d0bf69;}
+.s4 { color: #6c7986;}
+</style>
+</head>
+<body bgcolor="#292a2f">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+RedditSidebarLinksTest.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">edu.reddituigroup.reddit.tests;</span>
+
+<span class="s0">import </span><span class="s1">org.openqa.selenium.By;</span>
+<span class="s0">import </span><span class="s1">org.openqa.selenium.support.ui.ExpectedConditions;</span>
+<span class="s0">import </span><span class="s1">org.testng.Assert;</span>
+<span class="s0">import </span><span class="s1">org.testng.annotations.Test;</span>
+
+<span class="s0">public class </span><span class="s1">RedditSidebarLinksTest </span><span class="s0">extends </span><span class="s1">BaseTest {</span>
+
+    <span class="s0">private </span><span class="s1">By getSidebarLinkLocator(String linkText) {</span>
+        <span class="s0">return </span><span class="s1">By.xpath(</span><span class="s2">&quot;//a[.//div[normalize-space()='&quot; </span><span class="s1">+ linkText + </span><span class="s2">&quot;']]&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s3">21</span><span class="s1">, description = </span><span class="s2">&quot;Click 'Communities' link in sidebar&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">clickCommunities() {</span>
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Navigating to homepage for sidebar test...&quot;</span><span class="s1">);</span>
+        <span class="s1">driver.get(REDDIT_URL);</span>
+        <span class="s1">sleepForPresentation(</span><span class="s3">1000</span><span class="s1">); </span><span class="s4">// Pause on homepage</span>
+
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Attempting to click on the 'Communities' component...&quot;</span><span class="s1">);</span>
+        <span class="s1">By communitiesLocator = getSidebarLinkLocator(</span><span class="s2">&quot;Communities&quot;</span><span class="s1">);</span>
+        <span class="s0">try </span><span class="s1">{</span>
+            <span class="s1">clickElement(communitiesLocator); </span><span class="s4">// [cite: 24]</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;Successfully clicked on the 'Communities' component.&quot;</span><span class="s1">);</span>
+            <span class="s1">wait.until(ExpectedConditions.urlContains(</span><span class="s2">&quot;/communities&quot;</span><span class="s1">));</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;Navigated to Communities page: &quot; </span><span class="s1">+ driver.getCurrentUrl());</span>
+            <span class="s1">sleepForPresentation(); </span><span class="s4">// Pause on new page</span>
+        <span class="s1">} </span><span class="s0">catch </span><span class="s1">(Exception e) {</span>
+            <span class="s1">System.err.println(</span><span class="s2">&quot;Exception during clickCommunities: &quot; </span><span class="s1">+ e.getMessage());</span>
+            <span class="s1">e.printStackTrace();</span>
+            <span class="s1">Assert.fail(</span><span class="s2">&quot;Failed to click 'Communities' link.&quot;</span><span class="s1">, e);</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s3">22</span><span class="s1">, description = </span><span class="s2">&quot;Click 'Help' link in sidebar&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">clickHelp() {</span>
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Navigating to homepage for sidebar test...&quot;</span><span class="s1">);</span>
+        <span class="s1">driver.get(REDDIT_URL);</span>
+        <span class="s1">sleepForPresentation(</span><span class="s3">1000</span><span class="s1">);</span>
+
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Attempting to click on the 'Help' component...&quot;</span><span class="s1">);</span>
+        <span class="s1">By helpLocator = getSidebarLinkLocator(</span><span class="s2">&quot;Help&quot;</span><span class="s1">); </span><span class="s4">// [cite: 27]</span>
+        <span class="s0">try </span><span class="s1">{</span>
+            <span class="s1">clickElement(helpLocator);</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;Successfully clicked on the 'Help' component.&quot;</span><span class="s1">);</span>
+            <span class="s1">wait.until(ExpectedConditions.urlContains(</span><span class="s2">&quot;support.reddithelp.com&quot;</span><span class="s1">)); </span><span class="s4">// [cite: 5] (From previous context, verify URL)</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;Navigated to Help page: &quot; </span><span class="s1">+ driver.getCurrentUrl());</span>
+            <span class="s1">sleepForPresentation();</span>
+        <span class="s1">} </span><span class="s0">catch </span><span class="s1">(Exception e) {</span>
+            <span class="s1">System.err.println(</span><span class="s2">&quot;Exception during clickHelp: &quot; </span><span class="s1">+ e.getMessage()); </span><span class="s4">// [cite: 28]</span>
+            <span class="s1">e.printStackTrace();</span>
+            <span class="s1">Assert.fail(</span><span class="s2">&quot;Failed to click 'Help' link.&quot;</span><span class="s1">, e);</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s3">23</span><span class="s1">, description = </span><span class="s2">&quot;Click 'Blog' link in sidebar&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">clickBlog() {</span>
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Navigating to homepage for sidebar test...&quot;</span><span class="s1">);</span>
+        <span class="s1">driver.get(REDDIT_URL);</span>
+        <span class="s1">sleepForPresentation(</span><span class="s3">1000</span><span class="s1">);</span>
+
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Attempting to click on the 'Blog' component...&quot;</span><span class="s1">);</span>
+        <span class="s1">By blogLocator = getSidebarLinkLocator(</span><span class="s2">&quot;Blog&quot;</span><span class="s1">);</span>
+        <span class="s0">try </span><span class="s1">{</span>
+            <span class="s1">clickElement(blogLocator);</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;Successfully clicked on the 'Blog' component.&quot;</span><span class="s1">);</span>
+            <span class="s1">wait.until(ExpectedConditions.urlContains(</span><span class="s2">&quot;redditblog.com&quot;</span><span class="s1">));</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;Navigated to Blog page: &quot; </span><span class="s1">+ driver.getCurrentUrl());</span>
+            <span class="s1">sleepForPresentation();</span>
+        <span class="s1">} </span><span class="s0">catch </span><span class="s1">(Exception e) {</span>
+            <span class="s1">System.err.println(</span><span class="s2">&quot;Exception during clickBlog: &quot; </span><span class="s1">+ e.getMessage());</span>
+            <span class="s1">e.printStackTrace();</span>
+            <span class="s1">Assert.fail(</span><span class="s2">&quot;Failed to click 'Blog' link.&quot;</span><span class="s1">, e);</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s3">24</span><span class="s1">, description = </span><span class="s2">&quot;Click 'Careers' link in sidebar&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">clickCareers() {</span>
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Navigating to homepage for sidebar test...&quot;</span><span class="s1">);</span>
+        <span class="s1">driver.get(REDDIT_URL);</span>
+        <span class="s1">sleepForPresentation(</span><span class="s3">1000</span><span class="s1">);</span>
+
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Attempting to click on the 'Careers' component...&quot;</span><span class="s1">);</span>
+        <span class="s1">By careersLocator = getSidebarLinkLocator(</span><span class="s2">&quot;Careers&quot;</span><span class="s1">);</span>
+        <span class="s0">try </span><span class="s1">{</span>
+            <span class="s1">clickElement(careersLocator);</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;Successfully clicked on the 'Careers' component.&quot;</span><span class="s1">);</span>
+            <span class="s1">wait.until(ExpectedConditions.urlContains(</span><span class="s2">&quot;careers&quot;</span><span class="s1">));</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;Navigated to Careers page: &quot; </span><span class="s1">+ driver.getCurrentUrl());</span>
+            <span class="s1">sleepForPresentation();</span>
+        <span class="s1">} </span><span class="s0">catch </span><span class="s1">(Exception e) {</span>
+            <span class="s1">System.err.println(</span><span class="s2">&quot;Exception during clickCareers: &quot; </span><span class="s1">+ e.getMessage());</span>
+            <span class="s1">e.printStackTrace();</span>
+            <span class="s1">Assert.fail(</span><span class="s2">&quot;Failed to click 'Careers' link.&quot;</span><span class="s1">, e);</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s3">25</span><span class="s1">, description = </span><span class="s2">&quot;Click 'Press' link in sidebar&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">clickPress() {</span>
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Navigating to homepage for sidebar test...&quot;</span><span class="s1">);</span>
+        <span class="s1">driver.get(REDDIT_URL);</span>
+        <span class="s1">sleepForPresentation(</span><span class="s3">1000</span><span class="s1">);</span>
+
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Attempting to click on the 'Press' component...&quot;</span><span class="s1">);</span>
+        <span class="s1">By pressLocator = getSidebarLinkLocator(</span><span class="s2">&quot;Press&quot;</span><span class="s1">);</span>
+        <span class="s0">try </span><span class="s1">{</span>
+            <span class="s1">clickElement(pressLocator);</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;Successfully clicked on the 'Press' component.&quot;</span><span class="s1">);</span>
+            <span class="s1">wait.until(ExpectedConditions.urlContains(</span><span class="s2">&quot;press&quot;</span><span class="s1">));</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;Navigated to Press page: &quot; </span><span class="s1">+ driver.getCurrentUrl());</span>
+            <span class="s1">sleepForPresentation();</span>
+        <span class="s1">} </span><span class="s0">catch </span><span class="s1">(Exception e) {</span>
+            <span class="s1">System.err.println(</span><span class="s2">&quot;Exception during clickPress: &quot; </span><span class="s1">+ e.getMessage());</span>
+            <span class="s1">e.printStackTrace();</span>
+            <span class="s1">Assert.fail(</span><span class="s2">&quot;Failed to click 'Press' link.&quot;</span><span class="s1">, e);</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>

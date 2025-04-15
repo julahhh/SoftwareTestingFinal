@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>RedditNavigationTest.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #fc5fa3; font-weight: bold;}
+.s1 { color: #ffffff;}
+.s2 { color: #fc6a5d;}
+.s3 { color: #d0bf69;}
+.s4 { color: #6c7986;}
+</style>
+</head>
+<body bgcolor="#292a2f">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+RedditNavigationTest.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">edu.reddituigroup.reddit.tests;</span>
+
+<span class="s0">import </span><span class="s1">org.openqa.selenium.*;</span>
+<span class="s0">import </span><span class="s1">org.openqa.selenium.chrome.ChromeDriver;</span>
+<span class="s0">import </span><span class="s1">org.openqa.selenium.support.ui.ExpectedConditions;</span>
+<span class="s0">import </span><span class="s1">org.testng.Assert;</span>
+<span class="s0">import </span><span class="s1">org.testng.annotations.*;</span>
+
+<span class="s0">public class </span><span class="s1">RedditNavigationTest </span><span class="s0">extends </span><span class="s1">BaseTest {</span>
+
+    <span class="s0">private final </span><span class="s1">By popularLinkLocator = By.xpath(</span><span class="s2">&quot;/html/body/shreddit-app/div[2]/reddit-sidebar-nav/nav/left-nav-top-section//div/faceplate-tracker[2]/li/a&quot;</span><span class="s1">);</span>
+    <span class="s0">private final </span><span class="s1">By answersLinkLocator = By.xpath(</span><span class="s2">&quot;/html/body/shreddit-app/div[2]/reddit-sidebar-nav/nav/left-nav-top-section//div/faceplate-tracker[3]/li/a&quot;</span><span class="s1">);</span>
+    <span class="s0">private final </span><span class="s1">By topicsSidebarLocator = By.xpath(</span><span class="s2">&quot;//nav | //div[contains(@aria-label,'Primary')] | //*[contains(text(), 'Feeds')]&quot;</span><span class="s1">);</span>
+
+
+    <span class="s1">@Test(priority = </span><span class="s3">6</span><span class="s1">, description = </span><span class="s2">&quot;Verify the 'Popular' link is present and clickable.&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">verifyPopularLink() {</span>
+        <span class="s1">WebElement popularLink = findElement(popularLinkLocator);</span>
+        <span class="s1">Assert.assertTrue(popularLink.isDisplayed(), </span><span class="s2">&quot;'Popular' link should be displayed.&quot;</span><span class="s1">);</span>
+        <span class="s1">Assert.assertTrue(popularLink.isEnabled(), </span><span class="s2">&quot;'Popular' link should be clickable.&quot;</span><span class="s1">);</span>
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Verified 'Popular' link presence&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s3">7</span><span class="s1">, description = </span><span class="s2">&quot;Navigate to 'Popular' feed and verify URL/Title.&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">navigateToPopular() {</span>
+        <span class="s1">clickElement(popularLinkLocator);</span>
+        <span class="s1">wait.until(ExpectedConditions.urlContains(</span><span class="s2">&quot;/r/popular/&quot;</span><span class="s1">));</span>
+        <span class="s1">Assert.assertTrue(driver.getCurrentUrl().contains(</span><span class="s2">&quot;/r/popular/&quot;</span><span class="s1">), </span><span class="s2">&quot;URL should contain '/r/popular/'.&quot;</span><span class="s1">);</span>
+        <span class="s1">Assert.assertTrue(driver.getTitle().contains(</span><span class="s2">&quot;Popular&quot;</span><span class="s1">), </span><span class="s2">&quot;Title should contain 'Popular'.&quot;</span><span class="s1">);</span>
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Navigated to Popular and verified URL/Title&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s3">8</span><span class="s1">, description = </span><span class="s2">&quot;Verify Answers link&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">verifyAnswersLink() {</span>
+        <span class="s1">WebElement allLink = findElement(answersLinkLocator);</span>
+        <span class="s1">Assert.assertTrue(allLink.isDisplayed(), </span><span class="s2">&quot;'Answers' link should be displayed.&quot;</span><span class="s1">);</span>
+        <span class="s1">Assert.assertTrue(allLink.isEnabled(), </span><span class="s2">&quot;'Answers' link should be clickable.&quot;</span><span class="s1">);</span>
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Verified 'Answers' link presence&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s3">9</span><span class="s1">, description = </span><span class="s2">&quot;Verify Scroll Page&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">scrollPage() </span><span class="s0">throws </span><span class="s1">InterruptedException {</span>
+        <span class="s1">WebDriver driver = </span><span class="s0">new </span><span class="s1">ChromeDriver();</span>
+        <span class="s1">driver.get(</span><span class="s2">&quot;https://www.reddit.com/?feed=home&quot;</span><span class="s1">);</span>
+        <span class="s1">driver.manage().window().maximize();</span>
+        <span class="s1">JavascriptExecutor exe = (JavascriptExecutor) driver;</span>
+        <span class="s1">exe.executeScript(</span><span class="s2">&quot;window.scroll(0,1000)&quot;</span><span class="s1">, </span><span class="s2">&quot;&quot;</span><span class="s1">);</span><span class="s4">//scroll up</span>
+        <span class="s1">Thread.sleep(</span><span class="s3">3000</span><span class="s1">);</span>
+        <span class="s1">exe.executeScript(</span><span class="s2">&quot;window.scroll(0,-1000)&quot;</span><span class="s1">, </span><span class="s2">&quot;&quot;</span><span class="s1">);</span><span class="s4">//scroll down</span>
+        <span class="s1">Thread.sleep(</span><span class="s3">3000</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority= </span><span class="s3">10</span><span class="s1">, description = </span><span class="s2">&quot;Verify presence of a 'Topics' or similar sidebar section.&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">verifyTopicsSidebarSection() {</span>
+        <span class="s1">WebElement topicsSection = findElement(topicsSidebarLocator);</span>
+        <span class="s1">Assert.assertTrue(topicsSection.isDisplayed(), </span><span class="s2">&quot;'Topics' or similar sidebar section should be present.&quot;</span><span class="s1">);</span>
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Verified Topics/Sidebar section presence&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>

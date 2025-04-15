@@ -1,0 +1,125 @@
+<html>
+<head>
+<title>RedditCommentSortingTest.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #fc5fa3; font-weight: bold;}
+.s1 { color: #ffffff;}
+.s2 { color: #fc6a5d;}
+.s3 { color: #6c7986;}
+.s4 { color: #9ef1dd;}
+.s5 { color: #d0bf69;}
+</style>
+</head>
+<body bgcolor="#292a2f">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+RedditCommentSortingTest.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">edu.reddituigroup.reddit.tests;</span>
+
+<span class="s0">import </span><span class="s1">org.openqa.selenium.JavascriptExecutor;</span>
+<span class="s0">import </span><span class="s1">org.openqa.selenium.support.ui.ExpectedConditions;</span>
+<span class="s0">import </span><span class="s1">org.openqa.selenium.By;</span>
+<span class="s0">import </span><span class="s1">org.testng.Assert;</span>
+<span class="s0">import </span><span class="s1">org.testng.annotations.BeforeClass;</span>
+<span class="s0">import </span><span class="s1">org.testng.annotations.Test;</span>
+
+<span class="s0">public class </span><span class="s1">RedditCommentSortingTest </span><span class="s0">extends </span><span class="s1">BaseTest {</span>
+
+    <span class="s1">@BeforeClass</span>
+    <span class="s0">public void </span><span class="s1">navigateToPostForSorting() {</span>
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Setting up for comment sorting: Navigating to a post page...&quot;</span><span class="s1">);</span>
+        <span class="s1">driver.get(REDDIT_URL); </span><span class="s3">// Go to homepage first</span>
+        <span class="s1">wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(</span><span class="s2">&quot;div[data-testid='post-container']&quot;</span><span class="s1">)));</span>
+
+        <span class="s0">try </span><span class="s1">{</span>
+            <span class="s1">JavascriptExecutor js = (JavascriptExecutor) driver;</span>
+            <span class="s1">Object clickResult = js.executeScript(</span>
+                    <span class="s2">&quot;const postLink = document.querySelector('a[slot=</span><span class="s4">\&quot;</span><span class="s2">full-post-link</span><span class="s4">\&quot;</span><span class="s2">].absolute');&quot; </span><span class="s1">+</span>
+                            <span class="s2">&quot;if (!postLink) { console.error('Post link not found for navigation'); return 'ERROR'; }&quot; </span><span class="s1">+</span>
+                            <span class="s2">&quot;postLink.click(); return 'OK';&quot;</span>
+            <span class="s1">);</span>
+            <span class="s0">if </span><span class="s1">(</span><span class="s2">&quot;ERROR&quot;</span><span class="s1">.equals(clickResult)) Assert.fail(</span><span class="s2">&quot;Could not navigate to post page in BeforeClass setup.&quot;</span><span class="s1">);</span>
+            <span class="s1">wait.until(ExpectedConditions.urlContains(</span><span class="s2">&quot;/comments/&quot;</span><span class="s1">));</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;Setup complete: On post page &quot; </span><span class="s1">+ driver.getCurrentUrl());</span>
+            <span class="s1">sleepForPresentation(); </span><span class="s3">// Pause on post page before tests</span>
+        <span class="s1">} </span><span class="s0">catch </span><span class="s1">(Exception e) {</span>
+            <span class="s1">Assert.fail(</span><span class="s2">&quot;Failed to navigate to post page in BeforeClass setup.&quot;</span><span class="s1">, e);</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s0">private void </span><span class="s1">sortCommentsBy(String sortOption) {</span>
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Attempting to sort comments by: &quot; </span><span class="s1">+ sortOption);</span>
+        <span class="s0">try </span><span class="s1">{</span>
+            <span class="s1">JavascriptExecutor js = (JavascriptExecutor) driver;</span>
+            <span class="s1">Object openResult = js.executeScript(</span>
+                    <span class="s2">&quot;try {&quot; </span><span class="s1">+</span>
+                            <span class="s2">&quot;const dropdownEl = document.querySelector('shreddit-sort-dropdown');&quot; </span><span class="s1">+</span>
+                            <span class="s2">&quot;if (!dropdownEl) return 'ERROR: No shreddit-sort-dropdown found';&quot; </span><span class="s1">+</span>
+                            <span class="s2">&quot;if (!dropdownEl.shadowRoot) return 'ERROR: Dropdown has no shadow root';&quot; </span><span class="s1">+</span>
+                            <span class="s2">&quot;const button = dropdownEl.shadowRoot.getElementById('comment-sort-button');&quot; </span><span class="s1">+ </span><span class="s3">// JS Locator [cite: 17]</span>
+                            <span class="s2">&quot;if (!button) return 'ERROR: No button inside shadow root';&quot; </span><span class="s1">+</span>
+                            <span class="s2">&quot;button.click();&quot; </span><span class="s1">+</span>
+                            <span class="s2">&quot;return 'Opened sort dropdown';&quot; </span><span class="s1">+</span>
+                            <span class="s2">&quot;} catch (e) { return 'ERROR: JS Exception (open): ' + e.message; }&quot;</span>
+            <span class="s1">);</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;JS Open Dropdown Result: &quot; </span><span class="s1">+ openResult);</span>
+            <span class="s1">Assert.assertFalse(openResult.toString().startsWith(</span><span class="s2">&quot;ERROR:&quot;</span><span class="s1">), </span><span class="s2">&quot;JS execution failed: &quot; </span><span class="s1">+ openResult);</span>
+            <span class="s1">sleepForPresentation(</span><span class="s5">1000</span><span class="s1">); </span><span class="s3">// Wait for dropdown animation/content</span>
+
+            <span class="s1">String script =</span>
+                    <span class="s2">&quot;try {&quot; </span><span class="s1">+</span>
+                            <span class="s2">&quot;const items = document.querySelectorAll('faceplate-tracker[noun=</span><span class="s4">\&quot;</span><span class="s2">sort</span><span class="s4">\&quot;</span><span class="s2">] div[role=</span><span class="s4">\&quot;</span><span class="s2">menuitem</span><span class="s4">\&quot;</span><span class="s2">]');&quot; </span><span class="s1">+ </span><span class="s3">// JS Locator [cite: 19, 20] - Adjusted based on likely structure</span>
+                            <span class="s2">&quot;if (!items || items.length === 0) return 'ERROR: No sort menu items found';&quot; </span><span class="s1">+</span>
+                            <span class="s2">&quot;for (const el of items) {&quot; </span><span class="s1">+</span>
+                            <span class="s2">&quot;   const text = el.textContent.trim();&quot; </span><span class="s1">+</span>
+                            <span class="s2">&quot;   if (text === '&quot; </span><span class="s1">+ sortOption + </span><span class="s2">&quot;') {&quot; </span><span class="s1">+ </span><span class="s3">// Match text [cite: 20]</span>
+                            <span class="s2">&quot;       el.click();&quot; </span><span class="s1">+ </span><span class="s3">// Click item [cite: 21]</span>
+                            <span class="s2">&quot;       return 'Clicked: ' + text;&quot; </span><span class="s1">+</span>
+                            <span class="s2">&quot;   }&quot; </span><span class="s1">+</span>
+                            <span class="s2">&quot;}&quot; </span><span class="s1">+</span>
+                            <span class="s2">&quot;return 'ERROR: Option not found: &quot; </span><span class="s1">+ sortOption + </span><span class="s2">&quot;';&quot; </span><span class="s1">+</span>
+                            <span class="s2">&quot;} catch (e) { return 'ERROR: JS Exception (click): ' + e.message; }&quot;</span><span class="s1">; </span><span class="s3">// [cite: 22]</span>
+
+            <span class="s1">Object clickResult = js.executeScript(script);</span>
+            <span class="s1">System.out.println(</span><span class="s2">&quot;JS Click Sort Option Result: &quot; </span><span class="s1">+ clickResult);</span>
+            <span class="s1">Assert.assertFalse(clickResult.toString().startsWith(</span><span class="s2">&quot;ERROR:&quot;</span><span class="s1">), </span><span class="s2">&quot;JS execution failed: &quot; </span><span class="s1">+ clickResult);</span>
+
+            <span class="s1">sleepForPresentation();</span>
+
+        <span class="s1">} </span><span class="s0">catch </span><span class="s1">(Exception e) {</span>
+            <span class="s1">System.err.println(</span><span class="s2">&quot;Exception while sorting by &quot; </span><span class="s1">+ sortOption + </span><span class="s2">&quot;: &quot; </span><span class="s1">+ e.getMessage());</span>
+            <span class="s1">e.printStackTrace();</span>
+            <span class="s1">Assert.fail(</span><span class="s2">&quot;Failed to sort comments by &quot; </span><span class="s1">+ sortOption, e);</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s5">16</span><span class="s1">, description = </span><span class="s2">&quot;Sort comments by 'Top'&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">sortCommentsByTop() {</span>
+        <span class="s1">sortCommentsBy(</span><span class="s2">&quot;Top&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s5">17</span><span class="s1">, description = </span><span class="s2">&quot;Sort comments by 'New'&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">sortCommentsByNew() {</span>
+        <span class="s1">sortCommentsBy(</span><span class="s2">&quot;New&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s5">18</span><span class="s1">, description = </span><span class="s2">&quot;Sort comments by 'Controversial'&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">sortCommentsByControversial() {</span>
+        <span class="s1">sortCommentsBy(</span><span class="s2">&quot;Controversial&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s5">19</span><span class="s1">, description = </span><span class="s2">&quot;Sort comments by 'Old'&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">sortCommentsByOld() {</span>
+        <span class="s1">sortCommentsBy(</span><span class="s2">&quot;Old&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s5">20</span><span class="s1">, description = </span><span class="s2">&quot;Sort comments by 'Q&amp;A'&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">sortCommentsByQnA() {</span>
+        <span class="s1">sortCommentsBy(</span><span class="s2">&quot;Q&amp;A&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>

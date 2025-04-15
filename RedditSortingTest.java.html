@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>RedditSortingTest.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #fc5fa3; font-weight: bold;}
+.s1 { color: #ffffff;}
+.s2 { color: #fc6a5d;}
+.s3 { color: #d0bf69;}
+</style>
+</head>
+<body bgcolor="#292a2f">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+RedditSortingTest.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">edu.reddituigroup.reddit.tests;</span>
+
+<span class="s0">import </span><span class="s1">org.openqa.selenium.*;</span>
+<span class="s0">import </span><span class="s1">org.openqa.selenium.support.ui.ExpectedConditions;</span>
+<span class="s0">import </span><span class="s1">org.testng.Assert;</span>
+<span class="s0">import </span><span class="s1">org.testng.annotations.*;</span>
+
+<span class="s0">public class </span><span class="s1">RedditSortingTest </span><span class="s0">extends </span><span class="s1">BaseTest {</span>
+
+    <span class="s0">private final </span><span class="s1">By hotSortLocator = By.xpath(</span><span class="s2">&quot;//button[normalize-space()='Hot'] | //a[contains(@href, '?sort=hot')]&quot;</span><span class="s1">);</span>
+    <span class="s0">private final </span><span class="s1">By newSortLocator = By.xpath(</span><span class="s2">&quot;//button[normalize-space()='New'] | //a[contains(@href, '?sort=new')]&quot;</span><span class="s1">);</span>
+    <span class="s0">private final </span><span class="s1">By topSortLocator = By.xpath(</span><span class="s2">&quot;//button[normalize-space()='Top'] | //a[contains(@href, '?sort=top')]&quot;</span><span class="s1">);</span>
+
+
+    <span class="s1">@BeforeMethod</span>
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">setUp() {</span>
+        <span class="s0">super</span><span class="s1">.setUp();</span>
+        <span class="s1">driver.get(REDDIT_URL + </span><span class="s2">&quot;r/popular/&quot;</span><span class="s1">);</span>
+        <span class="s1">wait.until(ExpectedConditions.urlContains(</span><span class="s2">&quot;/r/popular/&quot;</span><span class="s1">));</span>
+        <span class="s1">wait.until(ExpectedConditions.presenceOfElementLocated(hotSortLocator));</span>
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Navigated to r/popular for sorting tests&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s3">26</span><span class="s1">, description = </span><span class="s2">&quot;Verify 'Hot' sort option is present and clickable.&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">verifyHotSortOption() {</span>
+        <span class="s1">WebElement hotButton = findElement(hotSortLocator);</span>
+        <span class="s1">Assert.assertTrue(hotButton.isDisplayed(), </span><span class="s2">&quot;'Hot' sort button should be displayed.&quot;</span><span class="s1">);</span>
+        <span class="s1">Assert.assertTrue(hotButton.isEnabled(), </span><span class="s2">&quot;'Hot' sort button should be clickable.&quot;</span><span class="s1">);</span>
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Verified 'Hot' sort option&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s3">27</span><span class="s1">, description = </span><span class="s2">&quot;Verify 'New' sort option is present and clickable.&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">verifyNewSortOption() {</span>
+        <span class="s1">WebElement newButton = findElement(newSortLocator);</span>
+        <span class="s1">Assert.assertTrue(newButton.isDisplayed(), </span><span class="s2">&quot;'New' sort button should be displayed.&quot;</span><span class="s1">);</span>
+        <span class="s1">Assert.assertTrue(newButton.isEnabled(), </span><span class="s2">&quot;'New' sort button should be clickable.&quot;</span><span class="s1">);</span>
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Verified 'New' sort option&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s3">28</span><span class="s1">, description = </span><span class="s2">&quot;Verify 'Top' sort option is present and clickable.&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">verifyTopSortOption() {</span>
+        <span class="s1">WebElement topButton = findElement(topSortLocator);</span>
+        <span class="s1">Assert.assertTrue(topButton.isDisplayed(), </span><span class="s2">&quot;'Top' sort button should be displayed.&quot;</span><span class="s1">);</span>
+        <span class="s1">Assert.assertTrue(topButton.isEnabled(), </span><span class="s2">&quot;'Top' sort button should be clickable.&quot;</span><span class="s1">);</span>
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Verified 'Top' sort option&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s3">29</span><span class="s1">, description = </span><span class="s2">&quot;Click 'New' sort and verify URL change or active state.&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">clickNewSortOption() {</span>
+        <span class="s1">clickElement(newSortLocator);</span>
+        <span class="s1">By activeNewLocator = By.xpath(</span><span class="s2">&quot;//button[normalize-space()='New' and (@aria-selected='true' or contains(@class, 'active'))] | //a[contains(@href, '?sort=new') and contains(@class, 'active')]&quot;</span><span class="s1">);</span>
+        <span class="s1">wait.until(ExpectedConditions.or(</span>
+                <span class="s1">ExpectedConditions.urlContains(</span><span class="s2">&quot;sort=new&quot;</span><span class="s1">),</span>
+                <span class="s1">ExpectedConditions.presenceOfElementLocated(activeNewLocator)</span>
+        <span class="s1">));</span>
+        <span class="s0">boolean </span><span class="s1">isActive = driver.getCurrentUrl().contains(</span><span class="s2">&quot;sort=new&quot;</span><span class="s1">) || findElement(activeNewLocator).isDisplayed();</span>
+        <span class="s1">Assert.assertTrue(isActive, </span><span class="s2">&quot;Clicking 'New' should update URL or set button state to active.&quot;</span><span class="s1">);</span>
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Clicked 'New' sort and verified state/URL&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test(priority = </span><span class="s3">30</span><span class="s1">, description = </span><span class="s2">&quot;Click 'Top' sort and verify URL change or active state.&quot;</span><span class="s1">)</span>
+    <span class="s0">public void </span><span class="s1">clickTopSortOption() {</span>
+        <span class="s1">clickElement(topSortLocator);</span>
+        <span class="s1">By activeTopLocator = By.xpath(</span><span class="s2">&quot;//button[normalize-space()='Top' and (@aria-selected='true' or contains(@class, 'active'))] | //a[contains(@href, '?sort=top') and contains(@class, 'active')]&quot;</span><span class="s1">);</span>
+        <span class="s1">wait.until(ExpectedConditions.or(</span>
+                <span class="s1">ExpectedConditions.urlContains(</span><span class="s2">&quot;sort=top&quot;</span><span class="s1">),</span>
+                <span class="s1">ExpectedConditions.presenceOfElementLocated(activeTopLocator)</span>
+        <span class="s1">));</span>
+        <span class="s0">boolean </span><span class="s1">isActive = driver.getCurrentUrl().contains(</span><span class="s2">&quot;sort=top&quot;</span><span class="s1">) || findElement(activeTopLocator).isDisplayed();</span>
+        <span class="s1">Assert.assertTrue(isActive, </span><span class="s2">&quot;Clicking 'Top' should update URL or set button state to active.&quot;</span><span class="s1">);</span>
+
+        <span class="s1">By topTimeFrameLocator = By.xpath(</span><span class="s2">&quot;//button[contains(., 'Today')] | //div[contains(@role,'menu')]//button[normalize-space()='Today']&quot;</span><span class="s1">);</span>
+        <span class="s1">WebElement topTimeFrame = findElement(topTimeFrameLocator);</span>
+        <span class="s1">Assert.assertTrue(topTimeFrame.isDisplayed(), </span><span class="s2">&quot;Timeframe options for 'Top' should appear.&quot;</span><span class="s1">);</span>
+        <span class="s1">System.out.println(</span><span class="s2">&quot;Clicked 'Top' sort and verified state/URL&quot;</span><span class="s1">);</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>
