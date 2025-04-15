@@ -4,36 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c1a612b-c126-4a2f-adbf-3752219ad0cf" name="Changes" comment="Created testing.xml file. Refactor class tests to be inside of the tests folder. Purpose is to keep things organized. Inside of xml file change the name of the class to whatever you called it">
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/BaseTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditCommentSortingTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditFeedViewOptionsTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditHomepageTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditNavigationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditSearchTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditSidebarLinksTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditSortingTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditSubredditAccessTest.java" afterDir="false" />
+    <list default="true" id="2c1a612b-c126-4a2f-adbf-3752219ad0cf" name="Changes" comment="All Changes made so far">
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditTrendingCommunitiesTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Class5.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Class6.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Class7.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Class8.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PostManagement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/SubredditManagement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/base/BaseTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/Class3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/Class4.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/Class3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/Class4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/Class5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/Class6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/Class7.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/Class8.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/PostManagement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/SubredditManagement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditCommentSortingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditCommentSortingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditFeedViewOptionsTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditNavigationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditNavigationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditSearchTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditSearchTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditSidebarLinksTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditSidebarLinksTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditSortingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditSortingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditSubredditAccessTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditSubredditAccessTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing.xml" beforeDir="false" afterPath="$PROJECT_DIR$/testing.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +25,7 @@
   </component>
   <component name="ExportToHTMLSettings">
     <option name="printScope" value="4" />
-    <option name="OUTPUT_DIRECTORY" value="$USER_HOME$/Desktop/sofar" />
+    <option name="OUTPUT_DIRECTORY" value="$USER_HOME$/Desktop/RedditUITesting" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -104,8 +86,16 @@
     "TestNG.ChatFunctionalityTest.executor": "Run",
     "TestNG.FeedNavigationAndFilterTest.executor": "Run",
     "TestNG.RedditChatTests.executor": "Run",
+    "TestNG.RedditCommentSortingTest.executor": "Run",
     "TestNG.RedditFeedViewOptionsTest.executor": "Run",
+    "TestNG.RedditHomepageTest.executor": "Run",
+    "TestNG.RedditNavigationTest.executor": "Run",
     "TestNG.RedditNavigationTest.navigateToPopular.executor": "Debug",
+    "TestNG.RedditSearchTest.executor": "Run",
+    "TestNG.RedditSidebarLinksTest.executor": "Run",
+    "TestNG.RedditSortingTest.executor": "Run",
+    "TestNG.RedditSubredditAccessTest.executor": "Run",
+    "TestNG.RedditTrendingCommunitiesTest.executor": "Run",
     "git-widget-placeholder": "Martin",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -148,7 +138,7 @@
       <workItem from="1744595897119" duration="3237000" />
       <workItem from="1744671831405" duration="11314000" />
       <workItem from="1744685223222" duration="1171000" />
-      <workItem from="1744686403926" duration="20269000" />
+      <workItem from="1744686403926" duration="33768000" />
     </task>
     <task id="LOCAL-00001" summary="Structured Project and created needed classes">
       <option name="closed" value="true" />
@@ -190,13 +180,46 @@
       <option name="project" value="LOCAL" />
       <updated>1744675514636</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="All Changes made so far">
+      <option name="closed" value="true" />
+      <created>1744712075500</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1744712075500</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="main" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="Martin" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/main" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -207,7 +230,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="Martin" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
@@ -224,7 +247,23 @@
     <MESSAGE value="Created tests package for us to keep our tests in and moved class 3 and 4 into it as those are the two i am working on." />
     <MESSAGE value="Created tests package for us to keep our tests in and moved class 3 and 4 into it as those are the two i am working on." />
     <MESSAGE value="Created testing.xml file. Refactor class tests to be inside of the tests folder. Purpose is to keep things organized. Inside of xml file change the name of the class to whatever you called it" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created testing.xml file. Refactor class tests to be inside of the tests folder. Purpose is to keep things organized. Inside of xml file change the name of the class to whatever you called it" />
+    <MESSAGE value="All Changes made so far" />
+    <option name="LAST_COMMIT_MESSAGE" value="All Changes made so far" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditSearchTest.java</url>
+          <line>12</line>
+          <properties class="edu.reddituigroup.reddit.tests.RedditSearchTest" method="searchOnRedditWithJSAndNav">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

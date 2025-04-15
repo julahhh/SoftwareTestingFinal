@@ -43,9 +43,9 @@
         </classes>
     </test>
 
-    <test name="RedditFeedViewOptionsTest">
+    <test name="RedditTrendingCommunities">
         <classes>
-            <class name="edu.reddituigroup.reddit.tests.RedditFeedViewOptionsTest"/>
+            <class name="edu.reddituigroup.reddit.tests.RedditTrendingCommunitiesTest"/>
         </classes>
     </test>
 
