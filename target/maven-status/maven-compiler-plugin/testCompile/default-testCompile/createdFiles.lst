@@ -1,0 +1,10 @@
+edu/reddituigroup/reddit/tests/RedditSortingTest.class
+edu/reddituigroup/reddit/tests/RedditSubredditAccessTest.class
+edu/reddituigroup/reddit/tests/RedditHomepageTest.class
+edu/reddituigroup/reddit/tests/RedditCommentSortingTest.class
+edu/reddituigroup/reddit/tests/RedditTrendingCommunitiesTest.class
+edu/reddituigroup/reddit/tests/RedditSidebarLinksTest.class
+edu/reddituigroup/reddit/tests/RedditNavigationTest.class
+edu/reddituigroup/reddit/tests/BaseTest.class
+edu/reddituigroup/reddit/tests/RedditSearchTest.class
+edu/reddituigroup/reddit/tests/BaseTest$TestConfig.class

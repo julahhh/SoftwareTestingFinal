@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="RedditSearchTest"
+           tests="5"
+           failures="3"
+           errors="0"
+           skipped="0"
+           time="72.356">
+  <properties />
+            <testcase name="searchInputViaJS" time="2.133" classname="edu.reddituigroup.reddit.tests.RedditSearchTest">
+                <failure type="java.lang.AssertionError"
+                  message="JS execution failed to set search input: ERROR: Query Selector &lt;faceplate-search-input&gt; not found expected [true] but found [false]"
+              >
+<![CDATA[java.lang.AssertionError: JS execution failed to set search input: ERROR: Query Selector <faceplate-search-input> not found expected [true] but found [false]
+  org.testng.Assert.fail(Assert.java:111)
+  org.testng.Assert.failNotEquals(Assert.java:1578)
+  org.testng.Assert.assertTrue(Assert.java:57)
+  edu.reddituigroup.reddit.tests.RedditSearchTest.searchInputViaJS(RedditSearchTest.java:77)
+  java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+  java.base/java.lang.reflect.Method.invoke(Method.java:580)
+  org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+  org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+  org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
+  org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+  org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
+  org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
+  org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+  org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+  java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+  org.testng.TestRunner.privateRun(TestRunner.java:819)
+  org.testng.TestRunner.run(TestRunner.java:619)
+  org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+  org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+  org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+  org.testng.SuiteRunner.run(SuiteRunner.java:336)
+  org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+  org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+  org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+  org.testng.TestNG.runSuitesLocally(TestNG.java:1228)
+  org.testng.TestNG.runSuites(TestNG.java:1134)
+  org.testng.TestNG.run(TestNG.java:1101)
+  org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+  org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+  org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+  org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+  org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+  org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+  org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+      </failure>
+
+          </testcase>
+            <testcase name="searchViaDirectNavigation" time="33.739" classname="edu.reddituigroup.reddit.tests.RedditSearchTest">
+                <failure type="java.lang.AssertionError"
+                  message="Search results container/posts did not load after direct navigation."
+              >
+<![CDATA[java.lang.AssertionError: Search results container/posts did not load after direct navigation.
+  org.testng.Assert.fail(Assert.java:99)
+  edu.reddituigroup.reddit.tests.RedditSearchTest.searchViaDirectNavigation(RedditSearchTest.java:108)
+  java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+  java.base/java.lang.reflect.Method.invoke(Method.java:580)
+  org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+  org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+  org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
+  org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+  org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
+  org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
+  org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+  org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+  java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+  org.testng.TestRunner.privateRun(TestRunner.java:819)
+  org.testng.TestRunner.run(TestRunner.java:619)
+  org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+  org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+  org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+  org.testng.SuiteRunner.run(SuiteRunner.java:336)
+  org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+  org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+  org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+  org.testng.TestNG.runSuitesLocally(TestNG.java:1228)
+  org.testng.TestNG.runSuites(TestNG.java:1134)
+  org.testng.TestNG.run(TestNG.java:1101)
+  org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+  org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+  org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+  org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+  org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+  org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+  org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: org.openqa.selenium.TimeoutException: No element found with any of the provided locators
+Build info: version: '4.31.0', revision: '1ef9f18787*'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '15.3.2', java.version: '23.0.2'
+Driver info: driver.version: unknown
+  edu.reddituigroup.reddit.tests.BaseTest.waitForAnyElement(BaseTest.java:104)
+  edu.reddituigroup.reddit.tests.RedditSearchTest.searchViaDirectNavigation(RedditSearchTest.java:99)
+  java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+  java.base/java.lang.reflect.Method.invoke(Method.java:580)
+  org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+  org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+  org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
+  org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+  org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
+  org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
+  org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+  org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+  java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+  org.testng.TestRunner.privateRun(TestRunner.java:819)
+  org.testng.TestRunner.run(TestRunner.java:619)
+  org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+  org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+  org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+  org.testng.SuiteRunner.run(SuiteRunner.java:336)
+  org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+  org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+  org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+  org.testng.TestNG.runSuitesLocally(TestNG.java:1228)
+  org.testng.TestNG.runSuites(TestNG.java:1134)
+  org.testng.TestNG.run(TestNG.java:1101)
+  org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+  org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+  org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+  org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+  org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+  org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+  org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+      </failure>
+
+          </testcase>
+            <testcase name="verifyCommentInputPresenceAfterClick" time="30.294" classname="edu.reddituigroup.reddit.tests.RedditSearchTest">
+                <failure type="java.lang.AssertionError"
+                  message="Failed to verify comment input area presence."
+              >
+<![CDATA[java.lang.AssertionError: Failed to verify comment input area presence.
+  org.testng.Assert.fail(Assert.java:99)
+  edu.reddituigroup.reddit.tests.RedditSearchTest.verifyCommentInputPresenceAfterClick(RedditSearchTest.java:243)
+  java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+  java.base/java.lang.reflect.Method.invoke(Method.java:580)
+  org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+  org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+  org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
+  org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+  org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
+  org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
+  org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+  org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+  java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+  org.testng.TestRunner.privateRun(TestRunner.java:819)
+  org.testng.TestRunner.run(TestRunner.java:619)
+  org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+  org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+  org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+  org.testng.SuiteRunner.run(SuiteRunner.java:336)
+  org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+  org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+  org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+  org.testng.TestNG.runSuitesLocally(TestNG.java:1228)
+  org.testng.TestNG.runSuites(TestNG.java:1134)
+  org.testng.TestNG.run(TestNG.java:1101)
+  org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+  org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+  org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+  org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+  org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+  org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+  org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: org.openqa.selenium.TimeoutException: No element found with any of the provided locators
+Build info: version: '4.31.0', revision: '1ef9f18787*'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '15.3.2', java.version: '23.0.2'
+Driver info: driver.version: unknown
+  edu.reddituigroup.reddit.tests.BaseTest.waitForAnyElement(BaseTest.java:104)
+  edu.reddituigroup.reddit.tests.RedditSearchTest.verifyCommentInputPresenceAfterClick(RedditSearchTest.java:214)
+  java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+  java.base/java.lang.reflect.Method.invoke(Method.java:580)
+  org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+  org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+  org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
+  org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+  org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
+  org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
+  org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+  org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+  java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+  org.testng.TestRunner.privateRun(TestRunner.java:819)
+  org.testng.TestRunner.run(TestRunner.java:619)
+  org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+  org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+  org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+  org.testng.SuiteRunner.run(SuiteRunner.java:336)
+  org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+  org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+  org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+  org.testng.TestNG.runSuitesLocally(TestNG.java:1228)
+  org.testng.TestNG.runSuites(TestNG.java:1134)
+  org.testng.TestNG.run(TestNG.java:1101)
+  org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+  org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+  org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+  org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+  org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+  org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+  org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+      </failure>
+
+          </testcase>
+  
+  
+            <testcase name="clickCommentsButtonOnPost" time="2.174" classname="edu.reddituigroup.reddit.tests.RedditSearchTest" />
+                <testcase name="clickFirstFeedPost" time="4.016" classname="edu.reddituigroup.reddit.tests.RedditSearchTest" />
+      
+</testsuite>

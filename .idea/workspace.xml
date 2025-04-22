@@ -5,18 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c1a612b-c126-4a2f-adbf-3752219ad0cf" name="Changes" comment="All Changes made so far">
-      <change afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditTrendingCommunitiesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/BaseTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditCommentSortingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditCommentSortingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditFeedViewOptionsTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditHomepageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditHomepageTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditNavigationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditNavigationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditSearchTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditSearchTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditSidebarLinksTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditSidebarLinksTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditSortingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditSortingTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditSubredditAccessTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditSubredditAccessTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing.xml" beforeDir="false" afterPath="$PROJECT_DIR$/testing.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditTrendingCommunitiesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditTrendingCommunitiesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/edu/reddituigroup/reddit/tests/BaseTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/edu/reddituigroup/reddit/tests/BaseTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/edu/reddituigroup/reddit/tests/RedditCommentSortingTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/edu/reddituigroup/reddit/tests/RedditCommentSortingTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/edu/reddituigroup/reddit/tests/RedditHomepageTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/edu/reddituigroup/reddit/tests/RedditHomepageTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/edu/reddituigroup/reddit/tests/RedditNavigationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/edu/reddituigroup/reddit/tests/RedditNavigationTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/edu/reddituigroup/reddit/tests/RedditSearchTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/edu/reddituigroup/reddit/tests/RedditSearchTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/edu/reddituigroup/reddit/tests/RedditSidebarLinksTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/edu/reddituigroup/reddit/tests/RedditSidebarLinksTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/edu/reddituigroup/reddit/tests/RedditSortingTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/edu/reddituigroup/reddit/tests/RedditSortingTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/edu/reddituigroup/reddit/tests/RedditSubredditAccessTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/edu/reddituigroup/reddit/tests/RedditSubredditAccessTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/edu/reddituigroup/reddit/tests/RedditTrendingCommunitiesTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/edu/reddituigroup/reddit/tests/RedditTrendingCommunitiesTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,47 +87,88 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.PostManagement.executor": "Run",
-    "Application.SubredditManagement.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "TestNG./Users/martnap/Documents/School/FGCU/5.SP.25/CEN 4072 Software Testing/Reddit UI Project/SoftwareTestingFinal/testing.xml.executor": "Run",
-    "TestNG.ChatFunctionalityTest.executor": "Run",
-    "TestNG.FeedNavigationAndFilterTest.executor": "Run",
-    "TestNG.RedditChatTests.executor": "Run",
-    "TestNG.RedditCommentSortingTest.executor": "Run",
-    "TestNG.RedditFeedViewOptionsTest.executor": "Run",
-    "TestNG.RedditHomepageTest.executor": "Run",
-    "TestNG.RedditNavigationTest.executor": "Run",
-    "TestNG.RedditNavigationTest.navigateToPopular.executor": "Debug",
-    "TestNG.RedditSearchTest.executor": "Run",
-    "TestNG.RedditSidebarLinksTest.executor": "Run",
-    "TestNG.RedditSortingTest.executor": "Run",
-    "TestNG.RedditSubredditAccessTest.executor": "Run",
-    "TestNG.RedditTrendingCommunitiesTest.executor": "Run",
-    "git-widget-placeholder": "Martin",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "xpath.settings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.PostManagement.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SubredditManagement.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.RedditUITests.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;TestNG./Users/martnap/Documents/School/FGCU/5.SP.25/CEN 4072 Software Testing/Reddit UI Project/SoftwareTestingFinal/testing.xml.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.ChatFunctionalityTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.FeedNavigationAndFilterTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.RedditChatTests.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.RedditCommentSortingTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.RedditFeedViewOptionsTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.RedditHomepageTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.RedditNavigationTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.RedditNavigationTest.navigateToPopular.executor&quot;: &quot;Debug&quot;,
+    &quot;TestNG.RedditSearchTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.RedditSidebarLinksTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.RedditSortingTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.RedditSubredditAccessTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.RedditTrendingCommunitiesTest.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Martin&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;xpath.settings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\julia\OneDrive - Florida Gulf Coast University\..Software Testing Folder\Final Project\SoftwareTestingFinal" />
       <recent name="C:\Users\julia\OneDrive - Florida Gulf Coast University\..Software Testing Folder\Final Project\SoftwareTestingFinal\.idea" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="/Users/martnap/Documents/School/FGCU/5.SP.25/CEN 4072 Software Testing/Reddit UI Project/SoftwareTestingFinal/testing.xml" type="TestNG" nameIsGenerated="true">
+      <module name="SoftwareTestingFinal" />
+      <shortenClasspath name="NONE" />
+      <useClassPathOnly />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/testing.xml" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <shortenClasspath name="NONE" />
+      <useClassPathOnly />
+      <option name="SUITE_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="true" />
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SeleniumInternalSettingsState">
     <option name="lastUrl" value="https://www.reddit.com/r/popular/" />
@@ -138,7 +192,12 @@
       <workItem from="1744595897119" duration="3237000" />
       <workItem from="1744671831405" duration="11314000" />
       <workItem from="1744685223222" duration="1171000" />
-      <workItem from="1744686403926" duration="33768000" />
+      <workItem from="1744686403926" duration="40066000" />
+      <workItem from="1745091191253" duration="1940000" />
+      <workItem from="1745093139767" duration="1373000" />
+      <workItem from="1745264718333" duration="519000" />
+      <workItem from="1745330598540" duration="98000" />
+      <workItem from="1745340617187" duration="1421000" />
     </task>
     <task id="LOCAL-00001" summary="Structured Project and created needed classes">
       <option name="closed" value="true" />
@@ -188,7 +247,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744712075500</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="All Changes made so far">
+      <option name="closed" value="true" />
+      <created>1744747526227</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1744747526227</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,8 +322,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/java/edu/reddituigroup/reddit/tests/RedditSearchTest.java</url>
-          <line>12</line>
-          <properties class="edu.reddituigroup.reddit.tests.RedditSearchTest" method="searchOnRedditWithJSAndNav">
+          <line>10</line>
+          <properties class="edu.reddituigroup.reddit.tests.RedditSearchTest">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>

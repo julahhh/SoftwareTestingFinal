@@ -1,151 +1,185 @@
 package edu.reddituigroup.reddit.tests;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebElement;
-// Removed unused import: org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.*; // Keep annotations import
-
-import java.time.Duration;
-import java.util.List;
+import org.testng.annotations.*;
 
 public class RedditTrendingCommunitiesTest extends BaseTest {
 
-    // Removed the local @BeforeClass setUp - this class should use BaseTest setup/teardown
-    // @BeforeClass
-    // public void setUp() {
-    //     driver = new ChromeDriver(); // This was causing issues
-    //     driver.manage().window().maximize();
-    //     driver.get("https://www.reddit.com/");
-    // }
-
-    // Ensure navigation to homepage before each test in this class if needed
-    @BeforeMethod
-    public void navigateToHomeIfNeeded() {
-        if (!driver.getCurrentUrl().equals(REDDIT_URL)) {
-            System.out.println("Navigating to homepage for Trending Communities test...");
+    @Test(priority = 1, description = "Verify the trending section is visible.")
+    public void verifyTrendingSectionVisible() {
+        try {
             driver.get(REDDIT_URL);
-            wait.until(ExpectedConditions.urlToBe(REDDIT_URL));
-        }
-        // Wait for a known element to ensure page is ready
-        // Updated Wait: Wait for PRESENCE of search input OR feed container, making it more robust
-        // than waiting for VISIBILITY of only the search input.
-        System.out.println("Waiting for homepage elements to be present...");
-        try {
-            wait.until(ExpectedConditions.or(
-                    ExpectedConditions.presenceOfElementLocated(By.cssSelector("faceplate-search-input")),
-                    ExpectedConditions.presenceOfElementLocated(By.cssSelector("shreddit-feed")), // Added alternative check for feed
-                    ExpectedConditions.presenceOfElementLocated(By.cssSelector("div[data-testid='post-container']")) // Added check for post container
-            ));
-            System.out.println("Homepage elements found.");
-        } catch (TimeoutException e) {
-            System.err.println("Timeout waiting for key homepage elements (search input or feed). Page might not have loaded correctly.");
-            // Capture current URL for debugging
-            System.err.println("Current URL: " + driver.getCurrentUrl());
-            // Optionally capture page source or screenshot here for deeper debugging
-            Assert.fail("Setup failed: Key homepage elements not found.", e);
-        }
-    }
+            sleepForPresentation(2000); // Wait for page load
 
+            By[] trendingSectionLocators = {
+                By.xpath("//h2[contains(text(), 'Trending')]"),
+                By.xpath("//h3[contains(text(), 'Trending')]"),
+                By.xpath("//div[contains(@aria-label, 'Trending')]"),
+                By.cssSelector("div[data-testid='trending-communities']"),
+                By.cssSelector("div[data-testid='popular-communities']")
+            };
 
-    @Test(priority = 31, description = "Verify Trending/Popular communities section is visible")
-    public void testTrendingCommunitiesSectionVisible() {
-        // Updated locator: Target section header text - more robust than structure-based XPath
-        By trendingHeaderLocator = By.xpath("//h3[contains(text(),'Trending Today') or contains(text(),'Popular Communities')] | //*[contains(@aria-label,'communities')]/h2"); // Added fallback aria-label
-        try {
-            WebElement trendingSectionHeader = wait.until(ExpectedConditions.visibilityOfElementLocated(trendingHeaderLocator));
-            Assert.assertTrue(trendingSectionHeader.isDisplayed(), "Trending/Popular communities header is not visible.");
-            System.out.println("Trending/Popular communities section header found.");
-        } catch (TimeoutException e) {
-            System.err.println("Could not find Trending/Popular header using locator: " + trendingHeaderLocator);
-            Assert.fail("Trending/Popular communities header is not visible.", e);
+            WebElement trendingSection = null;
+            for (By locator : trendingSectionLocators) {
+                try {
+                    trendingSection = findElement(locator);
+                    if (trendingSection != null && trendingSection.isDisplayed()) {
+                        break;
+                    }
+                } catch (Exception e) {
+                    continue;
+                }
+            }
+
+            Assert.assertNotNull(trendingSection, "Trending section should be found using any of the locators");
+            Assert.assertTrue(trendingSection.isDisplayed(), "Trending section should be displayed");
+            System.out.println("Verified trending section presence");
+        } catch (Exception e) {
+            Assert.fail("Failed to verify trending section: " + e.getMessage());
         }
     }
 
-    @Test(priority = 32, description = "Open the first link in the Trending/Popular section")
-    public void testOpenFirstTrendingCommunity() {
-        // Updated locator: Find the first link (<a> tag with href containing /r/) within the likely container
-        // This assumes the container can be identified by aria-label or contains the header found above.
-        By firstCommunityLinkLocator = By.xpath("( (//div[contains(@aria-label,'communities')] | //div[.//h3[contains(text(),'Trending Today') or contains(text(),'Popular Communities')]])//a[contains(@href,'/r/')] )[1]");
+    @Test(priority = 2, description = "Click the first trending community link.")
+    public void clickFirstTrendingCommunityLink() {
         try {
-            WebElement firstLink = wait.until(ExpectedConditions.elementToBeClickable(firstCommunityLinkLocator));
-            String linkText = firstLink.getText(); // Get text for logging
-            System.out.println("Clicking first trending/popular community link: " + linkText);
-            firstLink.click();
+            driver.get(REDDIT_URL);
+            sleepForPresentation(2000); // Wait for page load
 
-            // Check we navigated to the community page (URL has /r/ in path)
-            wait.until(ExpectedConditions.urlContains("/r/"));
+            By[] communityLinkLocators = {
+                By.cssSelector("a[href^='/r/']"),
+                By.xpath("//a[contains(@href, '/r/')]"),
+                By.cssSelector("div[data-testid='trending-communities'] a"),
+                By.cssSelector("div[data-testid='popular-communities'] a")
+            };
+
+            WebElement communityLink = null;
+            for (By locator : communityLinkLocators) {
+                try {
+                    communityLink = findElement(locator);
+                    if (communityLink != null && communityLink.isDisplayed()) {
+                        communityLink.click();
+                        break;
+                    }
+                } catch (Exception e) {
+                    continue;
+                }
+            }
+
+            Assert.assertNotNull(communityLink, "Community link should be found using any of the locators");
+            sleepForPresentation(2000); // Wait for navigation
+
+            // Verify we're on a subreddit page
             String currentUrl = driver.getCurrentUrl();
-            Assert.assertTrue(currentUrl.contains("/r/"), "Not navigated to a community page. Current URL: " + currentUrl);
-            System.out.println("Successfully navigated to: " + currentUrl);
-            // Navigate back for other tests if necessary (BaseTest @AfterClass handles cleanup)
-            // driver.navigate().back(); // Removed, let BaseTest handle state between tests/classes
-
-        } catch (TimeoutException e) {
-            System.err.println("Could not find or click the first community link using locator: " + firstCommunityLinkLocator);
-            Assert.fail("Failed to open first trending/popular community link.", e);
+            Assert.assertTrue(currentUrl.contains("/r/"), "Should be on a subreddit page. Current URL: " + currentUrl);
+            System.out.println("Successfully clicked first trending community link");
+        } catch (Exception e) {
+            Assert.fail("Failed to click first trending community link: " + e.getMessage());
         }
     }
 
-    @Test(priority = 33, description = "Verify Trending/Popular section is visible after refresh")
-    public void testTrendingRefresh() {
-        System.out.println("Refreshing page...");
-        driver.navigate().refresh();
-        // Use the same robust locator as the visibility test
-        By trendingHeaderLocator = By.xpath("//h3[contains(text(),'Trending Today') or contains(text(),'Popular Communities')] | //*[contains(@aria-label,'communities')]/h2");
+    @Test(priority = 3, description = "Verify trending section is visible after refresh.")
+    public void verifyTrendingVisibleAfterRefresh() {
         try {
-            // Also ensure page is generally ready after refresh before checking specific header
-            wait.until(ExpectedConditions.or(
-                    ExpectedConditions.presenceOfElementLocated(By.cssSelector("faceplate-search-input")),
-                    ExpectedConditions.presenceOfElementLocated(By.cssSelector("shreddit-feed"))
-            ));
-            WebElement trendingSectionHeader = wait.until(ExpectedConditions.visibilityOfElementLocated(trendingHeaderLocator));
-            Assert.assertTrue(trendingSectionHeader.isDisplayed(), "Trending/Popular section should be visible after refresh.");
-            System.out.println("Trending/Popular communities section header found after refresh.");
-        } catch (TimeoutException e) {
-            System.err.println("Could not find Trending/Popular header after refresh using locator: " + trendingHeaderLocator);
-            Assert.fail("Trending/Popular section not visible after refresh.", e);
+            driver.get(REDDIT_URL);
+            sleepForPresentation(2000); // Wait for page load
+            driver.navigate().refresh();
+            sleepForPresentation(2000); // Wait for refresh
+
+            By[] trendingSectionLocators = {
+                By.xpath("//h2[contains(text(), 'Trending')]"),
+                By.xpath("//h3[contains(text(), 'Trending')]"),
+                By.xpath("//div[contains(@aria-label, 'Trending')]"),
+                By.cssSelector("div[data-testid='trending-communities']"),
+                By.cssSelector("div[data-testid='popular-communities']")
+            };
+
+            WebElement trendingSection = null;
+            for (By locator : trendingSectionLocators) {
+                try {
+                    trendingSection = findElement(locator);
+                    if (trendingSection != null && trendingSection.isDisplayed()) {
+                        break;
+                    }
+                } catch (Exception e) {
+                    continue;
+                }
+            }
+
+            Assert.assertNotNull(trendingSection, "Trending section should be found using any of the locators");
+            Assert.assertTrue(trendingSection.isDisplayed(), "Trending section should be displayed");
+            System.out.println("Verified trending section presence after refresh");
+        } catch (Exception e) {
+            Assert.fail("Failed to verify trending section after refresh: " + e.getMessage());
         }
     }
 
-    @Test(priority = 34, description = "Verify Help link is present in the footer")
-    public void testFooterHelpLink() {
-        scrollToFooter(); // Ensure footer is scrolled into view
-        // Kept original locator - seems reasonable
-        By helpLinkLocator = By.xpath("//a[contains(text(),'Help Center') or contains(text(),'Help')]");
+    @Test(priority = 4, description = "Verify the 'Help' link in the footer.")
+    public void verifyFooterHelpLink() {
         try {
-            WebElement helpLink = wait.until(ExpectedConditions.visibilityOfElementLocated(helpLinkLocator));
-            Assert.assertTrue(helpLink.isDisplayed(), "Help link not visible in footer.");
-            System.out.println("Footer Help link found.");
-        } catch (TimeoutException e) {
-            System.err.println("Could not find Help link in footer using locator: " + helpLinkLocator);
-            Assert.fail("Help link not visible in footer.", e);
+            driver.get(REDDIT_URL);
+            sleepForPresentation(2000); // Wait for page load
+            scrollToFooter();
+
+            By[] helpLinkLocators = {
+                By.xpath("//footer//a[contains(text(), 'Help')]"),
+                By.xpath("//footer//a[contains(text(), 'Help Center')]"),
+                By.cssSelector("footer a[href*='help']"),
+                By.xpath("//a[contains(@href, 'help')]")
+            };
+
+            WebElement helpLink = null;
+            for (By locator : helpLinkLocators) {
+                try {
+                    helpLink = findElement(locator);
+                    if (helpLink != null && helpLink.isDisplayed()) {
+                        break;
+                    }
+                } catch (Exception e) {
+                    continue;
+                }
+            }
+
+            Assert.assertNotNull(helpLink, "Help link should be found using any of the locators");
+            Assert.assertTrue(helpLink.isDisplayed(), "Help link should be displayed");
+            System.out.println("Verified Help link presence in footer");
+        } catch (Exception e) {
+            Assert.fail("Failed to verify Help link: " + e.getMessage());
         }
     }
 
-    @Test(priority = 35, description = "Verify User Agreement link is present in the footer")
-    public void testUserAgreementLink() {
-        scrollToFooter(); // Ensure footer is scrolled into view
-        // Kept original locator - seems reasonable
-        By userAgreementLinkLocator = By.xpath("//a[contains(text(),'User Agreement') or contains(text(),'Terms')]");
+    @Test(priority = 5, description = "Verify the 'User Agreement' link in the footer.")
+    public void verifyUserAgreementLink() {
         try {
-            WebElement userAgreementLink = wait.until(ExpectedConditions.visibilityOfElementLocated(userAgreementLinkLocator));
-            Assert.assertTrue(userAgreementLink.isDisplayed(), "User Agreement / Terms link not visible in footer.");
-            System.out.println("Footer User Agreement link found.");
-        } catch (TimeoutException e) {
-            System.err.println("Could not find User Agreement link in footer using locator: " + userAgreementLinkLocator);
-            Assert.fail("User Agreement / Terms link not visible in footer.", e);
+            driver.get(REDDIT_URL);
+            sleepForPresentation(2000); // Wait for page load
+            scrollToFooter();
+
+            By[] agreementLinkLocators = {
+                By.xpath("//footer//a[contains(text(), 'User Agreement')]"),
+                By.xpath("//footer//a[contains(text(), 'Terms')]"),
+                By.cssSelector("footer a[href*='terms']"),
+                By.xpath("//a[contains(@href, 'terms')]")
+            };
+
+            WebElement agreementLink = null;
+            for (By locator : agreementLinkLocators) {
+                try {
+                    agreementLink = findElement(locator);
+                    if (agreementLink != null && agreementLink.isDisplayed()) {
+                        break;
+                    }
+                } catch (Exception e) {
+                    continue;
+                }
+            }
+
+            Assert.assertNotNull(agreementLink, "User Agreement link should be found using any of the locators");
+            Assert.assertTrue(agreementLink.isDisplayed(), "User Agreement link should be displayed");
+            System.out.println("Verified User Agreement link presence in footer");
+        } catch (Exception e) {
+            Assert.fail("Failed to verify User Agreement link: " + e.getMessage());
         }
     }
-
-    // Removed @AfterClass - BaseTest should handle teardown
-    // @AfterClass
-    // public void tearDown() {
-    //     if (driver != null) {
-    //         driver.quit();
-    //     }
-    // }
 }

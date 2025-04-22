@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="RedditSidebarLinksTest"
+           tests="5"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="48.728">
+  <properties />
+  
+  
+            <testcase name="clickCommunities" time="10.886" classname="edu.reddituigroup.reddit.tests.RedditSidebarLinksTest" />
+                <testcase name="clickPress" time="6.712" classname="edu.reddituigroup.reddit.tests.RedditSidebarLinksTest" />
+                <testcase name="clickBlog" time="12.651" classname="edu.reddituigroup.reddit.tests.RedditSidebarLinksTest" />
+                <testcase name="clickCareers" time="8.190" classname="edu.reddituigroup.reddit.tests.RedditSidebarLinksTest" />
+                <testcase name="clickHelp" time="10.289" classname="edu.reddituigroup.reddit.tests.RedditSidebarLinksTest" />
+      
+</testsuite>
