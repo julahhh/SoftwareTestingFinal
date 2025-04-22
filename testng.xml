@@ -1,0 +1,52 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="RedditTests" verbose="1">
+    <test name="8RedditClasses">
+        <classes>
+            <class name="edu.reddituigroup.reddit.tests.RedditHomepageTest"/>
+        </classes>
+    </test>
+
+    <test name="RedditSearchTest">
+        <classes>
+            <class name="edu.reddituigroup.reddit.tests.RedditSearchTest"/>
+        </classes>
+    </test>
+
+    <test name="RedditNavigationTest">
+        <classes>
+            <class name="edu.reddituigroup.reddit.tests.RedditNavigationTest"/>
+        </classes>
+    </test>
+
+    <test name="RedditSubredditAccessTest">
+        <classes>
+            <class name="edu.reddituigroup.reddit.tests.RedditSubredditAccessTest"/>
+        </classes>
+    </test>
+
+    <test name="RedditSortingTest">
+        <classes>
+            <class name="edu.reddituigroup.reddit.tests.RedditSortingTest"/>
+        </classes>
+    </test>
+
+    <test name="RedditSidebarLinksTest">
+        <classes>
+            <class name="edu.reddituigroup.reddit.tests.RedditSidebarLinksTest"/>
+        </classes>
+    </test>
+
+    <test name="RedditCommentSortingTest">
+        <classes>
+            <class name="edu.reddituigroup.reddit.tests.RedditCommentSortingTest"/>
+        </classes>
+    </test>
+
+    <test name="RedditTrendingCommunities">
+        <classes>
+            <class name="edu.reddituigroup.reddit.tests.RedditTrendingCommunitiesTest"/>
+        </classes>
+    </test>
+
+</suite>

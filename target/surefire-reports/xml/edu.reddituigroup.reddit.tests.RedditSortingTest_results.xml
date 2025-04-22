@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="RedditSortingTest"
+           tests="11"
+           failures="1"
+           errors="0"
+           skipped="10"
+           time="22.790">
+  <properties />
+            <testcase name="setUpTest" time="22.790" classname="edu.reddituigroup.reddit.tests.RedditSortingTest">
+                <failure type="java.lang.AssertionError"
+                  message="Setup for RedditSortingTest failed: Could not find required sort elements."
+              >
+<![CDATA[java.lang.AssertionError: Setup for RedditSortingTest failed: Could not find required sort elements.
+  org.testng.Assert.fail(Assert.java:99)
+  edu.reddituigroup.reddit.tests.RedditSortingTest.setUpTest(RedditSortingTest.java:39)
+  java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+  java.base/java.lang.reflect.Method.invoke(Method.java:580)
+  org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+  org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+  org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:393)
+  org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:326)
+  org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:810)
+  org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:578)
+  org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
+  org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+  org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
+  org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
+  org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+  org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+  java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+  org.testng.TestRunner.privateRun(TestRunner.java:819)
+  org.testng.TestRunner.run(TestRunner.java:619)
+  org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+  org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+  org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+  org.testng.SuiteRunner.run(SuiteRunner.java:336)
+  org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+  org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+  org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+  org.testng.TestNG.runSuitesLocally(TestNG.java:1228)
+  org.testng.TestNG.runSuites(TestNG.java:1134)
+  org.testng.TestNG.run(TestNG.java:1101)
+  org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+  org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+  org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+  org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+  org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+  org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+  org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.cssSelector: div[role='tablist'][aria-label*='posts'], shreddit-feed-tab-menu, div[data-testid='feed-sort-buttons'] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.31.0', revision: '1ef9f18787*'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '15.3.2', java.version: '23.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.96, chrome: {chromedriverVersion: 135.0.7049.95 (de2eb485a195..., userDataDir: /var/folders/mw/6sbw9s9s1w3...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51866}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:51866/devtoo..., se:cdpVersion: 135.0.7049.96, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: d3a02d1522820f1152c404f849eb1552
+  org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+  org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+  edu.reddituigroup.reddit.tests.RedditSortingTest.setUpTest(RedditSortingTest.java:32)
+  java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+  java.base/java.lang.reflect.Method.invoke(Method.java:580)
+  org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+  org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+  org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:393)
+  org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:326)
+  org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:810)
+  org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:578)
+  org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
+  org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+  org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
+  org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
+  org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+  org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+  java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+  org.testng.TestRunner.privateRun(TestRunner.java:819)
+  org.testng.TestRunner.run(TestRunner.java:619)
+  org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+  org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+  org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+  org.testng.SuiteRunner.run(SuiteRunner.java:336)
+  org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+  org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+  org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+  org.testng.TestNG.runSuitesLocally(TestNG.java:1228)
+  org.testng.TestNG.runSuites(TestNG.java:1134)
+  org.testng.TestNG.run(TestNG.java:1101)
+  org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+  org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+  org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+  org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+  org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+  org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+  org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+      </failure>
+
+          </testcase>
+  
+            <testcase name="setUpTest" time="0.0" classname="edu.reddituigroup.reddit.tests.RedditSortingTest">
+          <skipped />
+    </testcase>
+            <testcase name="setUpTest" time="0.0" classname="edu.reddituigroup.reddit.tests.RedditSortingTest">
+          <skipped />
+    </testcase>
+            <testcase name="setUpTest" time="0.0" classname="edu.reddituigroup.reddit.tests.RedditSortingTest">
+          <skipped />
+    </testcase>
+            <testcase name="setUpTest" time="0.0" classname="edu.reddituigroup.reddit.tests.RedditSortingTest">
+          <skipped />
+    </testcase>
+            <testcase name="tearDown" time="0.0" classname="edu.reddituigroup.reddit.tests.RedditSortingTest">
+          <skipped />
+    </testcase>
+            <testcase name="verifyNewSortOption" time="0.0" classname="edu.reddituigroup.reddit.tests.RedditSortingTest">
+          <skipped />
+    </testcase>
+            <testcase name="verifyTopSortOption" time="0.0" classname="edu.reddituigroup.reddit.tests.RedditSortingTest">
+          <skipped />
+    </testcase>
+            <testcase name="clickNewSortOption" time="0.0" classname="edu.reddituigroup.reddit.tests.RedditSortingTest">
+          <skipped />
+    </testcase>
+            <testcase name="clickTopSortOption" time="0.0" classname="edu.reddituigroup.reddit.tests.RedditSortingTest">
+          <skipped />
+    </testcase>
+            <testcase name="verifyHotSortOption" time="0.0" classname="edu.reddituigroup.reddit.tests.RedditSortingTest">
+          <skipped />
+    </testcase>
+  
+  
+</testsuite>
